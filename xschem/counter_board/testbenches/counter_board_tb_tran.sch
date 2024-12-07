@@ -13,18 +13,19 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=1e-06
+x2=2e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="clk
-reset
+node="clock
+reset_n
+enable
 b3
 b2
 b1
 b0"
-color="4 5 10 10 10 10"
+color="4 5 12 10 10 10 10"
 dataset=-1
 unitx=1
 logx=0
@@ -39,23 +40,28 @@ N 580 -920 580 -880 {
 lab=VDD}
 N 580 -820 580 -780 {
 lab=GND}
-N 740 -920 740 -880 {lab=clk}
-N 740 -680 740 -640 {lab=reset}
+N 740 -920 740 -880 {lab=clock}
+N 740 -680 740 -640 {lab=reset_n}
 N 740 -580 740 -540 {lab=GND}
-N 1140 -680 1180 -680 {lab=clk}
-N 1140 -620 1180 -620 {lab=reset}
-N 1380 -680 1460 -680 {lab=b3}
-N 1380 -660 1460 -660 {lab=b2}
-N 1380 -640 1460 -640 {lab=b1}
-N 1380 -620 1460 -620 {lab=b0}
-N 1280 -580 1280 -540 {lab=GND}
-N 1280 -760 1280 -720 {lab=VDD}
+N 1180 -680 1220 -680 {lab=clock}
+N 1180 -620 1220 -620 {lab=reset_n}
+N 1320 -580 1320 -540 {lab=GND}
+N 1320 -760 1320 -720 {lab=VDD}
+N 1180 -650 1220 -650 {lab=reset_n}
+N 580 -680 580 -640 {
+lab=enable}
+N 580 -580 580 -540 {
+lab=GND}
+N 1420 -680 1460 -680 {lab=b3}
+N 1420 -660 1460 -660 {lab=b2}
+N 1420 -640 1460 -640 {lab=b1}
+N 1420 -620 1460 -620 {lab=b0}
 C {devices/vsource.sym} 580 -850 0 0 {name=VDD value="1.5"}
 C {devices/gnd.sym} 580 -780 0 0 {name=l6 lab=GND}
 C {devices/vdd.sym} 580 -920 0 0 {name=l8 lab=VDD}
 C {devices/vsource.sym} 740 -850 0 0 {name=vclk value="pulse(0 1.5 0 10p 10p \{0.5/fclk\} \{1/fclk\})"
 }
-C {devices/lab_wire.sym} 740 -920 0 0 {name=p2 sig_type=std_logic lab=clk}
+C {devices/lab_wire.sym} 740 -920 0 0 {name=p2 sig_type=std_logic lab=clock}
 C {devices/gnd.sym} 740 -780 0 0 {name=l1 lab=GND}
 C {devices/title-3.sym} 0 0 0 0 {name=l3 author="Simon Dorrer" rev=1.0 lock=true}
 C {devices/launcher.sym} 1640 -1020 0 0 {name=h2
@@ -64,36 +70,33 @@ tclcommand="xschem save; xschem netlist; xschem simulate"
 }
 C {devices/launcher.sym} 1640 -970 0 0 {name=h1
 descr="Load waves" 
-tclcommand="xschem raw_read $netlist_dir/dig_tb_tran.raw tran"
+tclcommand="xschem raw_read $netlist_dir/counter_board_tb_tran.raw tran"
 }
 C {code_shown.sym} 160 -1330 0 0 {name=NGSPICE
 only_toplevel=false
 value="
 *True Mixed Signal Simulation (.xspice)
-.include /foss/designs/SG13G2_ATBS-ADC-main/xspice/dig/dig.xspice
-
-*True Analog Simulation with PEX (.spice)
-*....
+.include /foss/designs/SG13G2_ASIC-Design-Template/xspice/counter_board/counter_board.xspice
 
 .param temp=27
-.param fclk=10000000
+.param fclk=8000000
 .options savecurrents
 .control
 save all
 
 * Transient Analysis
 tran 1n 2u
-write dig_tb_tran.raw
+write counter_board_tb_tran.raw
 
-plot v(clk) v(reset)
+plot v(clock) v(enable) v(reset_n)
 plot v(b3) v(b2) v(b1) v(b0)
 
 quit
 .endc"}
-C {devices/lab_wire.sym} 740 -680 0 0 {name=p1 sig_type=std_logic lab=reset}
+C {devices/lab_wire.sym} 740 -680 0 0 {name=p1 sig_type=std_logic lab=reset_n}
 C {devices/gnd.sym} 740 -540 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} 1140 -680 0 0 {name=p3 sig_type=std_logic lab=clk}
-C {devices/lab_wire.sym} 1140 -620 0 0 {name=p4 sig_type=std_logic lab=reset}
+C {devices/lab_wire.sym} 1180 -680 0 0 {name=p3 sig_type=std_logic lab=clock}
+C {devices/lab_wire.sym} 1180 -620 0 0 {name=p4 sig_type=std_logic lab=reset_n}
 C {devices/lab_wire.sym} 1460 -680 0 1 {name=p6 sig_type=std_logic lab=b3}
 C {devices/lab_wire.sym} 1460 -660 0 1 {name=p7 sig_type=std_logic lab=b2}
 C {devices/lab_wire.sym} 1460 -640 0 1 {name=p8 sig_type=std_logic lab=b1}
@@ -106,6 +109,10 @@ value="
 .lib cornerMOSlv.lib mos_tt
 .lib cornerRES.lib res_typ
 "}
-C {devices/gnd.sym} 1280 -540 0 0 {name=l4 lab=GND}
-C {devices/vdd.sym} 1280 -760 0 0 {name=l5 lab=VDD}
-C {top_level/dig.sym} 1280 -650 0 0 {name=x1}
+C {devices/gnd.sym} 1320 -540 0 0 {name=l4 lab=GND}
+C {devices/vdd.sym} 1320 -760 0 0 {name=l5 lab=VDD}
+C {/foss/designs/SG13G2_ASIC-Design-Template/xschem/counter_board/counter_board.sym} 1320 -650 0 0 {name=x1}
+C {devices/lab_wire.sym} 1180 -650 0 0 {name=p5 sig_type=std_logic lab=enable}
+C {devices/vsource.sym} 580 -610 0 0 {name=ven value="1.5"}
+C {devices/gnd.sym} 580 -540 0 0 {name=l7 lab=GND}
+C {devices/lab_wire.sym} 580 -680 0 0 {name=p10 sig_type=std_logic lab=enable}

@@ -1,0 +1,25 @@
+
+18. Printing statistics.
+
+=== counter_board ===
+
+   Number of wires:                 14
+   Number of wire bits:             17
+   Number of public wires:           8
+   Number of public wire bits:      11
+   Number of ports:                  4
+   Number of port bits:              7
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     sg13g2_dfrbp_1                  4
+     sg13g2_inv_1                    1
+     sg13g2_nand2_1                  1
+     sg13g2_nand3_1                  1
+     sg13g2_xnor2_1                  2
+     sg13g2_xor2_1                   1
+
+   Chip area for module '\counter_board': 254.016000
+     of which used for sequential elements: 188.697600 (74.29%)
+

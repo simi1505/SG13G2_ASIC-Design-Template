@@ -1,0 +1,9 @@
+v 4
+file "/foss/designs/SG13G2_ASIC-Design-Template/verilog/rtl/" "../../vhdl/rtl/counter_ea.vhd" "076da948991a9f8a1b6b826e54c7d2a7d349a8ee" "20241207183423.759":
+  entity counter at 7( 253) + 0 on 59;
+  architecture rtl of counter at 28( 711) + 0 on 60;
+file "/foss/designs/SG13G2_ASIC-Design-Template/verilog/rtl/" "../../vhdl/rtl/constants_p.vhd" "29275bbc8a91c8c2ca42d0d5fb25db6dd0cde969" "20241207183423.703":
+  package constants_p at 7( 253) + 0 on 58;
+file "/foss/designs/SG13G2_ASIC-Design-Template/verilog/rtl/" "../../vhdl/rtl/counter_board.vhd" "917598239cfb858200c3f94bb9f656f229c3aa09" "20241207183423.848":
+  entity counter_board at 7( 253) + 0 on 61;
+  architecture rtl of counter_board at 25( 644) + 0 on 62;

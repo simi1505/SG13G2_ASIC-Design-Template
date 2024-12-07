@@ -14,7 +14,7 @@ The recommended folder structure makes it easy for automation with shell scripts
 Step-by-step introduction to set this repo up for your design:
 
 - Download or clone this folder / repo into the foss/designs folder of your IIC-OSIC-Tools environment.
-- Shift or copy the .designinit file from foss/designs/SG13G2_ASIC-Design-Template to foss/designs. This will change the used PDK to SG13G2 by IHP
+- Shift or copy the .designinit file from foss/designs/SG13G2_ASIC-Design-Template to foss/designs and check the path for Xschem. This will change the used PDK to SG13G2 by IHP.
 - Rename the repo as you wish.
 - Execute \texttt{clean\_all.sh}
 - Add your VHDL code to the \texttt{vhdl} folder

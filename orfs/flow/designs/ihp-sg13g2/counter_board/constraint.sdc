@@ -1,8 +1,8 @@
-current_design counter
+current_design counter_board
 
 set clk_name  core_clock
 set clk_port_name clock_i
-set clk_period 100
+set clk_period 125
 set clk_io_pct 0.2
 
 set clk_port [get_ports $clk_port_name]

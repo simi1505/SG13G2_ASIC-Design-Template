@@ -1,71 +1,72 @@
--- Author: Simon Dorrer, k12005887
--- Author: Anna Werzi, k12005895
+-- =====================================================
+-- Author: Simon Dorrer
+-- Last Modified: 07.12.2024
+-- Description: This .vhd file implements a testbench testing the counter entity.
+-- =====================================================
 
 library ieee;
 
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
-use work.std_definitions.all;
+use work.constants_p.all;
 use work.all;
 
-entity SeqCir_tb is
+entity counter_tb is
 
-end entity SeqCir_tb;
+end entity counter_tb;
 
-architecture bhv of SeqCir_tb is
-
--- Constants
-constant COUNTER_MAX       : natural := 10;	-- 10Hz (later 50MHz)
-constant COUNTER_BITWIDTH  : natural := natural(ceil(log2(real(COUNTER_MAX))));
+architecture bhv of counter_tb is
 
 -- Inputs
-signal clock 			  : std_ulogic := '0';
-signal reset 			  : std_ulogic := '0';
-signal start_button : std_ulogic := '0';
+signal clock 			    : std_ulogic := '0';
+signal reset_n 			  : std_ulogic := '1'; -- active low reset
+signal enable 			  : std_ulogic := '0';
 
 -- Outputs
-signal led 				  : std_ulogic := '0';
+signal counter_value  : unsigned(4 - 1 downto 0);
 
 begin
 
-  -- Embed DUT SeqCir
-  dut_SeqCir: entity SeqCir(rtl)
-	generic map(
-    COUNTER_BITWIDTH => COUNTER_BITWIDTH,
-    COUNTER_MAX      => COUNTER_MAX
-  )
+  -- Embed DUT Counter
+  dut_counter: entity counter_board(rtl)
 	port map(
 		clock_i 			  => clock,
-		reset_i 			  => reset,
-		start_button_i 	=> start_button,
-		led_o				    => led
+		reset_n_i 			=> reset_n,
+    enable_i        => enable,
+    
+		counter_value_o => counter_value
 	);
 	-- ============================================
   
-  -- Simulating clock signal --> comes from FPGA board later on
+  -- Simulating clock signal
 	clk_proc: process
 	begin
 		clock <= not clock;
-		wait for 5 ns;
-    -- wait for 1 * sec / (2 * CLK_FREQ);
+		wait for 1 * sec / (2 * CLK_FREQ);
 	end process clk_proc;
   -- ============================================
   
   -- Stimuli Process
 	stimuli: process
 	begin
-    wait for 30 ns;
-		start_button <= '1'; -- button pressed
-		wait for 70 ns;
-		start_button <= '0'; -- button released
-		
-		wait for 160 ns;
-		reset <= '1';		 -- reset activ
-		wait for 20 ns;
-		reset <= '0';
-		
-		wait;
+    -- Reset
+    reset_n <= '0';	
+		wait for 1 * sec / CLK_FREQ;
+		reset_n <= '1';
+		wait for 1 * sec / CLK_FREQ;
+    
+    -- Test enable
+    wait for 5 * sec / CLK_FREQ;
+    enable <= '1';
+    wait for 10 * sec / CLK_FREQ;
+    enable <= '0';
+    wait for 5 * sec / CLK_FREQ;
+    enable <= '1';
+    wait for 10 * sec / CLK_FREQ;
+    
+    report "End of simulation." severity error;
+    wait;
 	end process stimuli;
   -- ============================================
 end architecture bhv;

@@ -3,8 +3,8 @@
     "_SDC_CLK_PERIOD": {
         "type": "float",
         "minmax": [
-            1.0,
-            4.3647
+            100,
+            125
         ],
         "step": 0
     },

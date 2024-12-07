@@ -12,7 +12,7 @@ set -e -x
 
 cd $(dirname "$0")
 
-name=${name:-counter}
+name=${name:-counter_board}
 
 VERILOG=${VERILOG:-verilog/rtl}
 ORFS=${ORFS:-orfs}

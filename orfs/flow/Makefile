@@ -6,7 +6,7 @@
 # Uncomment or add the design to run
 # ==============================================================================
 
-DESIGN_CONFIG=./designs/ihp-sg13g2/counter/config.mk
+DESIGN_CONFIG=./designs/ihp-sg13g2/counter_board/config.mk
 
 # Default design
 DESIGN_CONFIG ?= ./designs/nangate45/gcd/config.mk

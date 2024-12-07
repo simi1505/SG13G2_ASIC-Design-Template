@@ -1,0 +1,38 @@
+** sch_path: /foss/designs/SG13G2_ASIC-Design-Template/xschem/counter_board/testbenches/counter_board_tb_tran.sch
+**.subckt counter_board_tb_tran
+VDD VDD GND 1.5
+vclk clock GND pulse(0 1.5 0 10p 10p {0.5/fclk} {1/fclk})
+vrst reset_n GND pulse(0 1.5 {1/fclk} 10p 10p {0.5/fclk*100} {1/fclk*100})
+x1 VDD GND clock b0 b1 b2 b3 reset_n counter_board
+ven enable GND 1.5
+**** begin user architecture code
+
+
+*True Mixed Signal Simulation (.xspice)
+.include /foss/designs/SG13G2_ASIC-Design-Template/xspice/counter_board/counter_board.xspice
+
+.param temp=27
+.param fclk=8000000
+.options savecurrents
+.control
+save all
+
+* Transient Analysis
+tran 1n 2u
+write counter_board_tb_tran.raw
+
+plot v(clock) v(enable) v(reset_n)
+plot v(b3) v(b2) v(b1) v(b0)
+
+quit
+.endc
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerRES.lib res_typ
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

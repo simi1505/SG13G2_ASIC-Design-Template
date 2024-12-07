@@ -1,0 +1,137 @@
+/* Verilog module written by vlog2Verilog (qflow) */
+/* With explicit power connections */
+/* With case-insensitive names (SPICE-compatible) */
+
+module counter_board(
+    inout VPWR,
+    inout VGND,
+    input clock_i,
+    output [3:0] counter_value_o,
+    input enable_i,
+    input reset_n_i
+);
+
+wire \counter_0.n16_o[0]  ;
+wire _04_ ;
+wire \counter_0.n16_o[2]  ;
+wire _01_ ;
+wire _03_ ;
+wire _00_ ;
+wire enable_i ;
+wire \counter_0.n16_o[1]  ;
+wire clock_i ;
+wire \counter_0.n16_o[3]  ;
+wire _05_ ;
+wire [3:0] counter_value_o ;
+wire _02_ ;
+wire reset_n_i ;
+
+sg13g2_inv_1 _06_ (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .A(counter_value_o[0]),
+    .Y(\counter_0.n16_o[0] )
+);
+
+sg13g2_xor2_1 _07_ (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .A(counter_value_o[1]),
+    .B(counter_value_o[0]),
+    .X(\counter_0.n16_o[1] )
+);
+
+sg13g2_nand2_1 _08_ (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .A(counter_value_o[1]),
+    .B(counter_value_o[0]),
+    .Y(_00_)
+);
+
+sg13g2_xnor2_1 _09_ (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .A(counter_value_o[2]),
+    .B(_00_),
+    .Y(\counter_0.n16_o[2] )
+);
+
+sg13g2_nand3_1 _10_ (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .A(counter_value_o[1]),
+    .B(counter_value_o[0]),
+    .C(counter_value_o[2]),
+    .Y(_01_)
+);
+
+sg13g2_xnor2_1 _11_ (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .A(counter_value_o[3]),
+    .B(_01_),
+    .Y(\counter_0.n16_o[3] )
+);
+
+sg13g2_dfrbp_1 \counter_0.n18_q[0]$_DFF_PN0_  (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .CLK(clock_i),
+    .D(\counter_0.n16_o[0] ),
+    .Q(counter_value_o[0]),
+    .Q_N(_03_),
+    .RESET_B(reset_n_i)
+);
+
+sg13g2_dfrbp_1 \counter_0.n18_q[1]$_DFF_PN0_  (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .CLK(clock_i),
+    .D(\counter_0.n16_o[1] ),
+    .Q(counter_value_o[1]),
+    .Q_N(_04_),
+    .RESET_B(reset_n_i)
+);
+
+sg13g2_dfrbp_1 \counter_0.n18_q[2]$_DFF_PN0_  (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .CLK(clock_i),
+    .D(\counter_0.n16_o[2] ),
+    .Q(counter_value_o[2]),
+    .Q_N(_05_),
+    .RESET_B(reset_n_i)
+);
+
+sg13g2_dfrbp_1 \counter_0.n18_q[3]$_DFF_PN0_  (
+    .VDD(VPWR),
+    .VSS(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .CLK(clock_i),
+    .D(\counter_0.n16_o[3] ),
+    .Q(counter_value_o[3]),
+    .Q_N(_02_),
+    .RESET_B(reset_n_i)
+);
+
+endmodule
