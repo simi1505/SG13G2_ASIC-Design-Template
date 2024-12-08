@@ -5,27 +5,30 @@ module counter_4_16
    output [3:0] counter_value_o);
   wire [3:0] counter_value;
   wire [3:0] next_counter_value;
-  wire n12_o;
-  wire [3:0] n14_o;
-  wire [3:0] n16_o;
-  reg [3:0] n18_q;
+  wire n13_o;
+  wire [3:0] n15_o;
+  wire [3:0] n17_o;
+  wire [3:0] n19_o;
+  reg [3:0] n20_q;
   assign counter_value_o = counter_value; //(module output)
   /* ../../vhdl/rtl/counter_ea.vhd:31:8  */
-  assign counter_value = n18_q; // (signal)
+  assign counter_value = n20_q; // (signal)
   /* ../../vhdl/rtl/counter_ea.vhd:32:8  */
-  assign next_counter_value = n16_o; // (signal)
+  assign next_counter_value = n17_o; // (signal)
   /* ../../vhdl/rtl/counter_ea.vhd:53:34  */
-  assign n12_o = counter_value == 4'b1111;
+  assign n13_o = counter_value == 4'b1111;
   /* ../../vhdl/rtl/counter_ea.vhd:56:61  */
-  assign n14_o = counter_value + 4'b0001;
+  assign n15_o = counter_value + 4'b0001;
   /* ../../vhdl/rtl/counter_ea.vhd:53:17  */
-  assign n16_o = n12_o ? 4'b0000 : n14_o;
+  assign n17_o = n13_o ? 4'b0000 : n15_o;
+  /* ../../vhdl/rtl/counter_ea.vhd:40:17  */
+  assign n19_o = enable_i ? next_counter_value : counter_value;
   /* ../../vhdl/rtl/counter_ea.vhd:40:17  */
   always @(posedge clock_i or posedge reset_i)
     if (reset_i)
-      n18_q <= 4'b0000;
+      n20_q <= 4'b0000;
     else
-      n18_q <= next_counter_value;
+      n20_q <= n19_o;
 endmodule
 
 module counter_board

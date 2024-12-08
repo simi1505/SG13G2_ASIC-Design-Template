@@ -1,0 +1,56 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sun Dec  8 18:42:11 2024
+[*]
+[dumpfile] "/foss/designs/SG13G2_ASIC-Design-Template/verilog/sim/counter_tb.vcd"
+[dumpfile_mtime] "Sun Dec  8 18:41:16 2024"
+[dumpfile_size] 3425
+[savefile] "/foss/designs/SG13G2_ASIC-Design-Template/verilog/sim/counter_tb.gtkw"
+[timestart] 0
+[size] 1374 600
+[pos] 36 44
+*-19.781010 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] counter_tb.
+[treeopen] counter_tb.dut_counter.
+[sst_width] 276
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 150
+@201
+-INPUTS
+@28
+counter_tb.dut_counter.clock_i
+counter_tb.dut_counter.reset_n_i
+counter_tb.dut_counter.enable_i
+@200
+-OUTPUTS
+@24
+counter_tb.dut_counter.counter_value_o[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

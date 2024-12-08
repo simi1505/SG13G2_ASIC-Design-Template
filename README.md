@@ -28,3 +28,12 @@ Step-by-step introduction to set this repo up for your design:
 
 
 For more detailed information, please refer to Option B in SG13G2_ASIC-Design-Template/doc/AMS_simulation.pdf.
+
+
+
+Simulation details:
+The VHDL code can be simulated with GHDL & GTKWave (counter_tb.gtkw ) and Modelsim (sim.do)
+
+
+
+Alternatively, one can use Surfer instead of GTKWave.

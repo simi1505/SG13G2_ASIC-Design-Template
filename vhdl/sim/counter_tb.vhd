@@ -1,7 +1,7 @@
 -- =====================================================
 -- Author: Simon Dorrer
 -- Last Modified: 07.12.2024
--- Description: This .vhd file implements a testbench testing the counter entity.
+-- Description: This .vhd file implements a testbench testing the VHDL counter entity.
 -- =====================================================
 
 library ieee;
@@ -24,7 +24,10 @@ signal reset_n 			  : std_ulogic := '1'; -- active low reset
 signal enable 			  : std_ulogic := '0';
 
 -- Outputs
-signal counter_value  : unsigned(4 - 1 downto 0);
+signal counter_value  : unsigned(COUNTER_BITWIDTH - 1 downto 0);
+
+-- End of Simulation for ModelSim
+signal tb_end           : std_ulogic := '0';
 
 begin
 
@@ -65,6 +68,7 @@ begin
     enable <= '1';
     wait for 10 * sec / CLK_FREQ;
     
+    tb_end <= '1';
     report "End of simulation." severity error;
     wait;
 	end process stimuli;

@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Sat Dec  7 18:04:31 2024
+[*] Sun Dec  8 17:54:21 2024
 [*]
 [dumpfile] "/foss/designs/SG13G2_ASIC-Design-Template/vhdl/sim/counter_tb.vcd"
-[dumpfile_mtime] "Sat Dec  7 18:04:23 2024"
-[dumpfile_size] 3133
+[dumpfile_mtime] "Sun Dec  8 17:54:01 2024"
+[dumpfile_size] 3161
 [savefile] "/foss/designs/SG13G2_ASIC-Design-Template/vhdl/sim/counter_tb.gtkw"
 [timestart] 0
 [size] 1374 600
@@ -42,11 +42,11 @@
 [signals_width] 190
 [sst_expanded] 1
 [sst_vpaned_height] 150
-@200
+@201
 -INPUTS
 @28
 counter_tb.dut_counter.counter_0.clock_i
-counter_tb.dut_counter.counter_0.reset_i
+counter_tb.dut_counter.reset_n_i
 counter_tb.dut_counter.counter_0.enable_i
 @200
 -OUTPUTS

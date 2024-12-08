@@ -12,13 +12,13 @@ wns 0.00
 ==========================================================================
 global place report_worst_slack
 --------------------------------------------------------------------------
-worst slack 99.77
+worst slack 99.66
 
 ==========================================================================
 global place report_checks -path_delay min
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0.n18_q[0]$_DFF_PN0_
+Endpoint: counter_0.n20_q[0]$_DFFE_PN0P_
           (removal check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: min
@@ -30,13 +30,13 @@ Fanout     Cap    Slew   Delay    Time   Description
                          25.00   25.00 ^ input external delay
      4    0.03    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
-                  0.00    0.00   25.00 ^ counter_0.n18_q[0]$_DFF_PN0_/RESET_B (sg13g2_dfrbp_1)
+                  0.00    0.00   25.00 ^ counter_0.n20_q[0]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
                                  25.00   data arrival time
 
                   0.00    0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (ideal)
                           0.00    0.00   clock reconvergence pessimism
-                                  0.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
+                                  0.00 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                          -0.09   -0.09   library removal time
                                  -0.09   data required time
 -----------------------------------------------------------------------------
@@ -46,9 +46,9 @@ Fanout     Cap    Slew   Delay    Time   Description
                                  25.09   slack (MET)
 
 
-Startpoint: counter_0.n18_q[0]$_DFF_PN0_
+Startpoint: counter_0.n20_q[3]$_DFFE_PN0P_
             (rising edge-triggered flip-flop clocked by core_clock)
-Endpoint: counter_0.n18_q[0]$_DFF_PN0_
+Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
           (rising edge-triggered flip-flop clocked by core_clock)
 Path Group: core_clock
 Path Type: min
@@ -57,19 +57,19 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                  0.00    0.00    0.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
-     5    0.02    0.07    0.23    0.23 ^ counter_0.n18_q[0]$_DFF_PN0_/Q (sg13g2_dfrbp_1)
-                                         counter_value_o[0] (net)
-                  0.07    0.00    0.23 ^ _06_/A (sg13g2_inv_1)
-     1    0.00    0.02    0.04    0.26 v _06_/Y (sg13g2_inv_1)
-                                         counter_0.n16_o[0] (net)
-                  0.02    0.00    0.26 v counter_0.n18_q[0]$_DFF_PN0_/D (sg13g2_dfrbp_1)
+                  0.00    0.00    0.00 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+     2    0.01    0.04    0.20    0.20 ^ counter_0.n20_q[3]$_DFFE_PN0P_/Q (sg13g2_dfrbp_1)
+                                         counter_value_o[3] (net)
+                  0.04    0.00    0.20 ^ _17_/A (sg13g2_xnor2_1)
+     1    0.00    0.03    0.06    0.26 v _17_/Y (sg13g2_xnor2_1)
+                                         _03_ (net)
+                  0.03    0.00    0.26 v counter_0.n20_q[3]$_DFFE_PN0P_/D (sg13g2_dfrbp_1)
                                   0.26   data arrival time
 
                   0.00    0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (ideal)
                           0.00    0.00   clock reconvergence pessimism
-                                  0.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
+                                  0.00 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                          -0.04   -0.04   library hold time
                                  -0.04   data required time
 -----------------------------------------------------------------------------
@@ -84,7 +84,7 @@ Fanout     Cap    Slew   Delay    Time   Description
 global place report_checks -path_delay max
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0.n18_q[0]$_DFF_PN0_
+Endpoint: counter_0.n20_q[0]$_DFFE_PN0P_
           (recovery check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: max
@@ -96,13 +96,13 @@ Fanout     Cap    Slew   Delay    Time   Description
                          25.00   25.00 ^ input external delay
      4    0.03    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
-                  0.00    0.00   25.00 ^ counter_0.n18_q[0]$_DFF_PN0_/RESET_B (sg13g2_dfrbp_1)
+                  0.00    0.00   25.00 ^ counter_0.n20_q[0]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
                                  25.00   data arrival time
 
                   0.00  125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock network delay (ideal)
                           0.00  125.00   clock reconvergence pessimism
-                                125.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
+                                125.00 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                          -0.11  124.89   library recovery time
                                 124.89   data required time
 -----------------------------------------------------------------------------
@@ -112,9 +112,9 @@ Fanout     Cap    Slew   Delay    Time   Description
                                  99.89   slack (MET)
 
 
-Startpoint: counter_0.n18_q[0]$_DFF_PN0_
-            (rising edge-triggered flip-flop clocked by core_clock)
-Endpoint: counter_value_o[0] (output port clocked by core_clock)
+Startpoint: enable_i (input port clocked by core_clock)
+Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by core_clock)
 Path Group: core_clock
 Path Type: max
 
@@ -122,22 +122,29 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                  0.00    0.00    0.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
-     5    0.02    0.07    0.23    0.23 ^ counter_0.n18_q[0]$_DFF_PN0_/Q (sg13g2_dfrbp_1)
-                                         counter_value_o[0] (net)
-                  0.07    0.00    0.23 ^ counter_value_o[0] (out)
-                                  0.23   data arrival time
+                         25.00   25.00 ^ input external delay
+     4    0.01    0.00    0.00   25.00 ^ enable_i (in)
+                                         enable_i (net)
+                  0.00    0.00   25.00 ^ _16_/D (sg13g2_nand4_1)
+     1    0.01    0.10    0.11   25.11 v _16_/Y (sg13g2_nand4_1)
+                                         _06_ (net)
+                  0.10    0.00   25.11 v _17_/B (sg13g2_xnor2_1)
+     1    0.00    0.04    0.11   25.22 v _17_/Y (sg13g2_xnor2_1)
+                                         _03_ (net)
+                  0.04    0.00   25.22 v counter_0.n20_q[3]$_DFFE_PN0P_/D (sg13g2_dfrbp_1)
+                                 25.22   data arrival time
 
                   0.00  125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock network delay (ideal)
                           0.00  125.00   clock reconvergence pessimism
-                        -25.00  100.00   output external delay
-                                100.00   data required time
+                                125.00 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+                         -0.12  124.88   library setup time
+                                124.88   data required time
 -----------------------------------------------------------------------------
-                                100.00   data required time
-                                 -0.23   data arrival time
+                                124.88   data required time
+                                -25.22   data arrival time
 -----------------------------------------------------------------------------
-                                 99.77   slack (MET)
+                                 99.66   slack (MET)
 
 
 
@@ -145,7 +152,7 @@ Fanout     Cap    Slew   Delay    Time   Description
 global place report_checks -unconstrained
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0.n18_q[0]$_DFF_PN0_
+Endpoint: counter_0.n20_q[0]$_DFFE_PN0P_
           (recovery check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: max
@@ -157,13 +164,13 @@ Fanout     Cap    Slew   Delay    Time   Description
                          25.00   25.00 ^ input external delay
      4    0.03    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
-                  0.00    0.00   25.00 ^ counter_0.n18_q[0]$_DFF_PN0_/RESET_B (sg13g2_dfrbp_1)
+                  0.00    0.00   25.00 ^ counter_0.n20_q[0]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
                                  25.00   data arrival time
 
                   0.00  125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock network delay (ideal)
                           0.00  125.00   clock reconvergence pessimism
-                                125.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
+                                125.00 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                          -0.11  124.89   library recovery time
                                 124.89   data required time
 -----------------------------------------------------------------------------
@@ -173,9 +180,9 @@ Fanout     Cap    Slew   Delay    Time   Description
                                  99.89   slack (MET)
 
 
-Startpoint: counter_0.n18_q[0]$_DFF_PN0_
-            (rising edge-triggered flip-flop clocked by core_clock)
-Endpoint: counter_value_o[0] (output port clocked by core_clock)
+Startpoint: enable_i (input port clocked by core_clock)
+Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by core_clock)
 Path Group: core_clock
 Path Type: max
 
@@ -183,22 +190,29 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                  0.00    0.00    0.00 ^ counter_0.n18_q[0]$_DFF_PN0_/CLK (sg13g2_dfrbp_1)
-     5    0.02    0.07    0.23    0.23 ^ counter_0.n18_q[0]$_DFF_PN0_/Q (sg13g2_dfrbp_1)
-                                         counter_value_o[0] (net)
-                  0.07    0.00    0.23 ^ counter_value_o[0] (out)
-                                  0.23   data arrival time
+                         25.00   25.00 ^ input external delay
+     4    0.01    0.00    0.00   25.00 ^ enable_i (in)
+                                         enable_i (net)
+                  0.00    0.00   25.00 ^ _16_/D (sg13g2_nand4_1)
+     1    0.01    0.10    0.11   25.11 v _16_/Y (sg13g2_nand4_1)
+                                         _06_ (net)
+                  0.10    0.00   25.11 v _17_/B (sg13g2_xnor2_1)
+     1    0.00    0.04    0.11   25.22 v _17_/Y (sg13g2_xnor2_1)
+                                         _03_ (net)
+                  0.04    0.00   25.22 v counter_0.n20_q[3]$_DFFE_PN0P_/D (sg13g2_dfrbp_1)
+                                 25.22   data arrival time
 
                   0.00  125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock network delay (ideal)
                           0.00  125.00   clock reconvergence pessimism
-                        -25.00  100.00   output external delay
-                                100.00   data required time
+                                125.00 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+                         -0.12  124.88   library setup time
+                                124.88   data required time
 -----------------------------------------------------------------------------
-                                100.00   data required time
-                                 -0.23   data arrival time
+                                124.88   data required time
+                                -25.22   data arrival time
 -----------------------------------------------------------------------------
-                                 99.77   slack (MET)
+                                 99.66   slack (MET)
 
 
 
@@ -208,11 +222,11 @@ global place report_power
 Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
-Sequential             1.67e-06   0.00e+00   2.05e-09   1.68e-06 100.0%
-Combinational          0.00e+00   0.00e+00   7.54e-10   7.54e-10   0.0%
+Sequential             3.67e-06   2.53e-07   2.15e-09   3.93e-06  89.3%
+Combinational          3.65e-07   1.06e-07   1.08e-09   4.72e-07  10.7%
 Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  1.67e-06   0.00e+00   2.81e-09   1.68e-06 100.0%
-                          99.8%       0.0%       0.2%
+Total                  4.04e-06   3.59e-07   3.23e-09   4.40e-06 100.0%
+                          91.8%       8.2%       0.1%

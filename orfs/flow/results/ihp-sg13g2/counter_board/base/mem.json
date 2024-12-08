@@ -3,7 +3,7 @@
   "modules": {
     "counter_board": {
       "attributes": {
-        "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:31.1-50.10",
+        "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:34.1-53.10",
         "top": "00000000000000000000000000000001",
         "hdlname": "counter_board"
       },
@@ -26,7 +26,7 @@
         }
       },
       "cells": {
-        "$auto$alumacc.cc:485:replace_alu$10": {
+        "$auto$alumacc.cc:485:replace_alu$12": {
           "hide_name": 1,
           "type": "$alu",
           "parameters": {
@@ -37,7 +37,7 @@
             "Y_WIDTH": "00000000000000000000000000000100"
           },
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:20.18-20.41"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:21.18-21.41"
           },
           "port_directions": {
             "A": "input",
@@ -58,7 +58,35 @@
             "Y": [ 17, 18, 19, 20 ]
           }
         },
-        "$flatten\\counter_0.$eq$/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:18$2": {
+        "$auto$ff.cc:266:slice$11": {
+          "hide_name": 1,
+          "type": "$adffe",
+          "parameters": {
+            "ARST_POLARITY": "00000000000000000000000000000000",
+            "ARST_VALUE": "0000",
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "EN_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:27.3-31.22"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "EN": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 21, 22, 23, 24 ],
+            "EN": [ 4 ],
+            "Q": [ 5, 6, 7, 8 ]
+          }
+        },
+        "$flatten\\counter_0.$eq$/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:19$2": {
           "hide_name": 1,
           "type": "$eq",
           "parameters": {
@@ -69,7 +97,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:18.18-18.42"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:19.18-19.42"
           },
           "port_directions": {
             "A": "input",
@@ -79,42 +107,17 @@
           "connections": {
             "A": [ 5, 6, 7, 8 ],
             "B": [ "1", "1", "1", "1" ],
-            "Y": [ 21 ]
+            "Y": [ 25 ]
           }
         },
-        "$flatten\\counter_0.$procdff$8": {
-          "hide_name": 1,
-          "type": "$adff",
-          "parameters": {
-            "ARST_POLARITY": "00000000000000000000000000000000",
-            "ARST_VALUE": "0000",
-            "CLK_POLARITY": "1",
-            "WIDTH": "00000000000000000000000000000100"
-          },
-          "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:24.3-28.35"
-          },
-          "port_directions": {
-            "ARST": "input",
-            "CLK": "input",
-            "D": "input",
-            "Q": "output"
-          },
-          "connections": {
-            "ARST": [ 3 ],
-            "CLK": [ 2 ],
-            "D": [ 22, 23, 24, 25 ],
-            "Q": [ 5, 6, 7, 8 ]
-          }
-        },
-        "$flatten\\counter_0.$ternary$/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:22$4": {
+        "$flatten\\counter_0.$ternary$/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:23$4": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
             "WIDTH": "00000000000000000000000000000100"
           },
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:22.18-22.41"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:23.18-23.41"
           },
           "port_directions": {
             "A": "input",
@@ -125,20 +128,20 @@
           "connections": {
             "A": [ 17, 18, 19, 20 ],
             "B": [ "0", "0", "0", "0" ],
-            "S": [ 21 ],
-            "Y": [ 22, 23, 24, 25 ]
+            "S": [ 25 ],
+            "Y": [ 21, 22, 23, 24 ]
           }
         }
       },
       "netnames": {
-        "$auto$alumacc.cc:501:replace_alu$11": {
+        "$auto$alumacc.cc:501:replace_alu$13": {
           "hide_name": 1,
           "bits": [ 13, 14, 15, 16 ],
           "attributes": {
             "unused_bits": "0 1 2 3"
           }
         },
-        "$auto$alumacc.cc:502:replace_alu$12": {
+        "$auto$alumacc.cc:502:replace_alu$14": {
           "hide_name": 1,
           "bits": [ 9, 10, 11, 12 ],
           "attributes": {
@@ -149,7 +152,7 @@
           "hide_name": 0,
           "bits": [ 2 ],
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:32.11-32.18"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:35.11-35.18"
           }
         },
         "counter_0.clock_i": {
@@ -181,45 +184,44 @@
           "bits": [ 4 ],
           "attributes": {
             "hdlname": "counter_0 enable_i",
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:4.11-4.19",
-            "unused_bits": "0 "
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:4.11-4.19"
           }
         },
-        "counter_0.n12_o": {
+        "counter_0.n13_o": {
           "hide_name": 0,
-          "bits": [ 21 ],
+          "bits": [ 25 ],
           "attributes": {
-            "hdlname": "counter_0 n12_o",
+            "hdlname": "counter_0 n13_o",
             "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:8.8-8.13"
           }
         },
-        "counter_0.n14_o": {
+        "counter_0.n15_o": {
           "hide_name": 0,
           "bits": [ 17, 18, 19, 20 ],
           "attributes": {
-            "hdlname": "counter_0 n14_o",
+            "hdlname": "counter_0 n15_o",
             "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:9.14-9.19"
           }
         },
-        "counter_0.n16_o": {
+        "counter_0.n17_o": {
           "hide_name": 0,
-          "bits": [ 22, 23, 24, 25 ],
+          "bits": [ 21, 22, 23, 24 ],
           "attributes": {
-            "hdlname": "counter_0 n16_o",
+            "hdlname": "counter_0 n17_o",
             "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:10.14-10.19"
           }
         },
-        "counter_0.n18_q": {
+        "counter_0.n20_q": {
           "hide_name": 0,
           "bits": [ 5, 6, 7, 8 ],
           "attributes": {
-            "hdlname": "counter_0 n18_q",
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:11.13-11.18"
+            "hdlname": "counter_0 n20_q",
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:12.13-12.18"
           }
         },
         "counter_0.next_counter_value": {
           "hide_name": 0,
-          "bits": [ 22, 23, 24, 25 ],
+          "bits": [ 21, 22, 23, 24 ],
           "attributes": {
             "hdlname": "counter_0 next_counter_value",
             "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:7.14-7.32"
@@ -229,21 +231,21 @@
           "hide_name": 0,
           "bits": [ 5, 6, 7, 8 ],
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:35.17-35.32"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:38.17-38.32"
           }
         },
         "enable_i": {
           "hide_name": 0,
           "bits": [ 4 ],
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:34.11-34.19"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:37.11-37.19"
           }
         },
         "reset_n_i": {
           "hide_name": 0,
           "bits": [ 3 ],
           "attributes": {
-            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:33.11-33.20"
+            "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:36.11-36.20"
           }
         }
       }

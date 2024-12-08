@@ -1,0 +1,175 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/si150/eda/designs/SG13G2_ASIC-Design-Template/vhdl/sim
+Pconstants_p
+Z1 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 12
+w1733594226
+R0
+8../rtl/constants_p.vhd
+F../rtl/constants_p.vhd
+l0
+L12 1
+V[MnQli3;XB8XMa2PTc@]91
+!s100 l6aQ9QRKAHM5AoiKUBiM10
+Z4 OV;C;2020.1;71
+32
+!s110 1733683594
+!i10b 1
+!s108 1733683594.000000
+!s90 -reportprogress|300|-work|work|../rtl/constants_p.vhd|
+!s107 ../rtl/constants_p.vhd|
+!i113 1
+Z5 o-work work
+Z6 tExplicit 1 CvgOpt 0
+Ecounter
+Z7 w1733679301
+R1
+Z8 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+R3
+!i122 13
+R0
+Z9 8../rtl/counter_ea.vhd
+Z10 F../rtl/counter_ea.vhd
+l0
+L14 1
+VRO@HSiF4bJ^=CiFzNOSa?0
+!s100 :o7JRM2Q_RO93hdmoQGe:2
+R4
+32
+Z11 !s110 1733683595
+!i10b 1
+Z12 !s108 1733683595.000000
+Z13 !s90 -reportprogress|300|-work|work|../rtl/counter_ea.vhd|
+Z14 !s107 ../rtl/counter_ea.vhd|
+!i113 1
+R5
+R6
+Artl
+R1
+R8
+R2
+R3
+Z15 DEx4 work 7 counter 0 22 RO@HSiF4bJ^=CiFzNOSa?0
+!i122 13
+l34
+L28 37
+VdiK0P7KzOo:JLYXi]KmS;0
+!s100 UW=haj6gcde4z9f5QFeNN3
+R4
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R5
+R6
+Ecounter_board
+Z16 w1733594607
+Z17 DPx4 work 11 constants_p 0 22 [MnQli3;XB8XMa2PTc@]91
+R1
+R8
+R2
+R3
+!i122 14
+R0
+Z18 8../rtl/counter_board.vhd
+Z19 F../rtl/counter_board.vhd
+l0
+Z20 L15 1
+VSYoK9dE=1UMU1TzlE3OE@3
+!s100 cP44^2A>2;eP[gIZ:c8EV0
+R4
+32
+R11
+!i10b 1
+R12
+Z21 !s90 -reportprogress|300|-work|work|../rtl/counter_board.vhd|
+Z22 !s107 ../rtl/counter_board.vhd|
+!i113 1
+R5
+R6
+Artl
+R15
+R17
+R1
+R8
+R2
+R3
+Z23 DEx4 work 13 counter_board 0 22 SYoK9dE=1UMU1TzlE3OE@3
+!i122 14
+l30
+L25 25
+VBT:=S3bEN@e:AHk?U2?1V2
+!s100 RPe9>OTYo3ce0YB4Hianh1
+R4
+32
+R11
+!i10b 1
+R12
+R21
+R22
+!i113 1
+R5
+R6
+Ecounter_tb
+Z24 w1733680129
+R17
+R1
+R8
+R2
+R3
+!i122 15
+R0
+Z25 8counter_tb.vhd
+Z26 Fcounter_tb.vhd
+l0
+R20
+VAkNd;_I:H6?>nnTLc1BFb1
+!s100 @QQ@X[;zcY?012zRF5eaA3
+R4
+32
+R11
+!i10b 1
+R12
+Z27 !s90 -reportprogress|300|-work|work|counter_tb.vhd|
+Z28 !s107 counter_tb.vhd|
+!i113 1
+R5
+R6
+Abhv
+R23
+R17
+R1
+R8
+R2
+R3
+Z29 DEx4 work 10 counter_tb 0 22 AkNd;_I:H6?>nnTLc1BFb1
+!i122 15
+l32
+Z30 L19 58
+Z31 V5dNSjOU[cUNeZ5jnf3`hi1
+Z32 !s100 T7[I^NcGoB[6A_ca:D4f_1
+R4
+32
+R11
+!i10b 1
+R12
+R27
+R28
+!i113 1
+R5
+R6

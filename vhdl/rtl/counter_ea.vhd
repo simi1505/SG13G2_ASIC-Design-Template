@@ -38,9 +38,9 @@ begin
 		if reset_i = '1' then
 			counter_value <= (others => '0');
 		elsif rising_edge(clock_i) then
-      --if enable_i = '1' then
+      if enable_i = '1' then
         counter_value <= next_counter_value;
-      --end if;
+      end if;
 		end if;
 	end process cnt_reg;
 	-- ============================================
