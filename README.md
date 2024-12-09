@@ -13,7 +13,7 @@ Temporary note: The current IIC-OSIC-Tools image is only compatible if the curre
 
 The recommended folder structure makes it easy to automate with shell scripts. VHDL files are read and converted into Verilog files (`vhdl2verilog.sh`). If Verilog files are available directly, this step can be skipped. With OpenROAD flow-scripts (ORFS) the newly generated Verilog file is synthesized and a layout is created. The synthesized Verilog file is then converted into a `.xspice` file with `qflow` scripts (`vlog2Verilog`, `vlog2Spice`, `spi2xspice.py`) which can be included into `Xschem` for analog-digital mixed simulation. All these scripts are automated with `run_all.sh` and can be cleaned again with `clean_all.sh`. The template contains a 4-Bit counter with an enable input to get a better understanding of the structure and the file paths within the scripts.
 
-I have also made a short video on how to use this repo: [www.youtube.com/@Simi_OE3SDE](http://www.youtube.com/@Simi_OE3SDE) (ToDo Video Link)
+I have also made a short video on how to use this repo: https://www.youtube.com/watch?v=UrUOg9s7gsM
 
 ## How to use this template for your design
 
