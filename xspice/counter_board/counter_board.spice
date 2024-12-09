@@ -1,0 +1,32 @@
+*SPICE netlist created from verilog structural netlist module counter_board by vlog2Spice (qflow)
+*This file may contain array delimiters, not for use in simulation.
+
+.include /foss/pdks/sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+
+.subckt counter_board VPWR VGND clock_i counter_value_o[0] counter_value_o[1] counter_value_o[2] counter_value_o[3]
++ enable_i reset_n_i 
+
+X_11_ counter_value_o[0] enable_i VPWR VGND _00_ sg13g2_xor2_1
+X_12_ counter_value_o[0] enable_i VPWR VGND _04_ sg13g2_nand2_1
+X_13_ counter_value_o[1] _04_ VPWR VGND _01_ sg13g2_xnor2_1
+X_14_ counter_value_o[1] counter_value_o[0] enable_i VPWR VGND _05_ sg13g2_nand3_1
+X_15_ counter_value_o[2] _05_ VPWR VGND _02_ sg13g2_xnor2_1
+X_16_ counter_value_o[1] counter_value_o[0] counter_value_o[2] enable_i VPWR VGND 
++ _06_
++ sg13g2_nand4_1
+X_17_ counter_value_o[3] _06_ VPWR VGND _03_ sg13g2_xnor2_1
+X\counter_0.n20_q[0]$_DFFE_PN0P_  clock_i _00_ counter_value_o[0] _10_ reset_n_i VPWR 
++ VGND
++ sg13g2_dfrbp_1
+X\counter_0.n20_q[1]$_DFFE_PN0P_  clock_i _01_ counter_value_o[1] _09_ reset_n_i VPWR 
++ VGND
++ sg13g2_dfrbp_1
+X\counter_0.n20_q[2]$_DFFE_PN0P_  clock_i _02_ counter_value_o[2] _08_ reset_n_i VPWR 
++ VGND
++ sg13g2_dfrbp_1
+X\counter_0.n20_q[3]$_DFFE_PN0P_  clock_i _03_ counter_value_o[3] _07_ reset_n_i VPWR 
++ VGND
++ sg13g2_dfrbp_1
+
+.ends
+.end
