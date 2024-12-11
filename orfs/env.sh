@@ -8,24 +8,21 @@ if [ -f /opt/rh/rh-python38/enable ]; then
   source /opt/rh/rh-python38/enable
 fi
 
-export OPENROAD=/foss/tools/openroad-latest
+# $TOOLS = /foss/tools
+export OPENROAD=$TOOLS/openroad-latest
 echo "OpenROAD: ${OPENROAD}"
 
-export OPENROAD_EXE=/foss/tools/openroad-latest/bin/openroad
+export OPENROAD_EXE=$TOOLS/openroad-latest/bin/openroad
 echo "OpenROAD EXE: ${OPENROAD_EXE}"
 
-export OPENSTA_EXE=/foss/tools/openroad-latest/bin/sta
+export OPENSTA_EXE=$TOOLS/openroad-latest/bin/sta
 echo "OpenSTA EXE: ${OPENSTA_EXE}"
 
-export YOSYS_EXE=/foss/tools/yosys/bin/yosys
+export YOSYS_EXE=$TOOLS/yosys/bin/yosys
 echo "Yosys EXE : ${YOSYS_EXE}"
 
-export KLAYOUT_DIR=/foss/tools/klayout
+export KLAYOUT_DIR=$TOOLS/klayout
 echo "KLayout DIR: ${KLAYOUT_DIR}"
-
-export PATH=/foss/tools/openroad/bin:$PATH
-export PATH=/foss/tools/yosys/bin:$PATH
-export PATH=${DIR}/dependencies/bin:$PATH
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/Applications/KLayout/klayout.app/Contents/MacOS:$PATH"

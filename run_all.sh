@@ -25,7 +25,6 @@ cd "$SCRIPT_DIR"
 
 # Run "run_orfs.sh"
 cd "$ORFS"
-export GDS_ALLOW_EMPTY="$name"_DEF_FILL # Suppress errors due to empty cells
 ./run_orfs.sh
 cd "$SCRIPT_DIR"
 
