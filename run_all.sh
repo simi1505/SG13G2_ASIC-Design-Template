@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # =====================================================
-# Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
 # Author: Simon Dorrer
 # Last Modified: 05.12.2024
 # Description: This .sh file runs all self-written shell scripts (vhdl2verilog, run_orfs, verilog2xspice) for the given folder structure.

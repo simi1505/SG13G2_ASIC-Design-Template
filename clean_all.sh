@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # =====================================================
-# Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
 # Author: Simon Dorrer
 # Last Modified: 05.12.2024
 # Description: This .sh file cleans all generated files from run_all.sh.

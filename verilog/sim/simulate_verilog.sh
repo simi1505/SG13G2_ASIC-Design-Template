@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # =====================================================
-# Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
 # Author: Simon Dorrer
 # Last Modified: 07.12.2024
 # Description: This .sh file verifies and simulates a verilog testbench with Verilator, IVerilog and GTKWave.

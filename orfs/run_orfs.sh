@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # =====================================================
-# Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
 # Author: Simon Dorrer
 # Last Modified: 05.12.2024
 # Description: This .sh file takes a Verilog file and runs the OpenROAD flow-scripts (ORFS) for the IHP SG13G2 PDK with it.

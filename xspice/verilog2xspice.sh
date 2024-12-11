@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # =====================================================
-# Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
 # Author: Simon Dorrer
 # Last Modified: 05.12.2024
 # Description: This .sh file takes a synthesized gate-level Verilog file (e.g. 1_synth for ORFS) and converts it into a .xspice file for the IHP SG13G2 PDK.
