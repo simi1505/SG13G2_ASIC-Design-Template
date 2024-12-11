@@ -22,12 +22,12 @@ If you want to use other OpenROAD-compatible PDKs, just add the corresponding fi
 1. Clone this repo into the `foss/designs` folder of your IIC-OSIC-Tools environment with `git clone https://github.com/simi1505/SG13G2_ASIC-Design-Template.git`.
 2. Copy the `.designinit` file from `foss/designs/SG13G2_ASIC-Design-Template` to `foss/designs` and check the path for Xschem. This will change the used PDK to SG13G2 by IHP.
 3. Rename the repo as you wish.
-4. Execute `clean\_all.sh` to remove any build files.
+4. Execute `clean_all.sh` to remove any build files.
 5. Add your VHDL code to the `vhdl` folder. It is advised that the same folder structure with `rtl` and `sim` is used.
 6. Add your `Xschem` files and testbenches to the `xschem` folder
-7. Adapt VHDL paths in `vhdl2verilog.sh` in the `verilog` folder. If the design is already done in Verilog, this step can be skipped. Do not forget to also comment out this step in `run\_all.sh`.
+7. Adapt VHDL paths in `vhdl2verilog.sh` in the `verilog` folder. If the design is already done in Verilog, this step can be skipped. Do not forget to also comment out this step in `run_all.sh`.
 8. Add config files to `orfs/flow/designs/ihp-sg13g2`. It is a good idea to copy an existing folder (e.g. `counter_board`) and adapt these files. Do not forget to set the path to the Verilog file in `config.mk` and set up the `constraint.sdc` and `autotuner.json`.
-9. Adapt name and Verilog path in `run\_all.sh`.
+9. Adapt name and Verilog path in `run_all.sh`.
 10. In the Xschem testbench, include the generated .xspice file with an absolute path, otherwise, ngspice will not find the file. For example, `.include /foss/designs/SG13G2_ASIC-Design-Template/xspice/counter_board/counter_board.xspice`
 11. Create a symbol with all needed pins (also VDD and VSS) and assign the pin order with `SHIFT+S`. The pin order can be found in the `.xspice` file (left signal = 0 to right signal = N-1). In the properties (open with `q`), the type should be set to `type=primitive`. It is recommended to check the `.sym` file in a text editor if everything was set correctly.
 
