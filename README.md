@@ -9,8 +9,6 @@ IIC-OSIC-Tools: https://github.com/iic-jku/IIC-OSIC-TOOLS
 
 The installation of IIC-OSIC-Tools is explained under SG13G2_ASIC-Design-Template/doc/Docker-Tutorial.pdf or in this YouTube video: https://www.youtube.com/watch?v=azgFzleiBW8&t=1943s.
 
-Temporary note: The current IIC-OSIC-Tools image is only compatible if the current tag is set to `DOCKER_TAG=next`. This will be fixed in the next release with `openroad-latest`. This is already implemented as a comment in the `env.sh` file in the `orfs` folder.
-
 The recommended folder structure makes it easy to automate with shell scripts. VHDL files are read and converted into Verilog files (`vhdl2verilog.sh`). If Verilog files are available directly, this step can be skipped. With OpenROAD flow-scripts (ORFS) the newly generated Verilog file is synthesized and a layout is created. The synthesized Verilog file is then converted into a `.xspice` file with `qflow` scripts (`vlog2Verilog`, `vlog2Spice`, `spi2xspice.py`) which can be included into `Xschem` for analog-digital mixed simulation. All these scripts are automated with `run_all.sh` and can be cleaned again with `clean_all.sh`. The template contains a 4-Bit counter with an enable input to get a better understanding of the structure and the file paths within the scripts.
 
 I have also made a short video on how to use this repo: https://www.youtube.com/watch?v=UrUOg9s7gsM

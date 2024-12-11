@@ -18,12 +18,12 @@ module counter_board (clock_i,
  wire _08_;
  wire _09_;
  wire _10_;
- wire net1;
- wire net2;
  wire net3;
  wire net4;
  wire net5;
  wire net6;
+ wire net1;
+ wire net2;
  wire clknet_0_clock_i;
  wire clknet_1_0__leaf_clock_i;
  wire clknet_1_1__leaf_clock_i;

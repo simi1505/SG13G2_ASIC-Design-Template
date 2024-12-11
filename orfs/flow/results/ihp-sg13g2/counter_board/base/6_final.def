@@ -363,7 +363,7 @@ PINS 7 ;
         + LAYER Metal2 ( -360 -100 ) ( 360 100 )
         + PLACED ( 79640 40740 ) N ;
 END PINS
-FILLS 539 ;
+FILLS 543 ;
     - LAYER Metal2 RECT ( 10080 11340 ) ( 15080 13340 ) ;
     - LAYER Metal2 RECT ( 16280 11340 ) ( 21280 13340 ) ;
     - LAYER Metal2 RECT ( 28680 11340 ) ( 33680 13340 ) ;
@@ -415,61 +415,64 @@ FILLS 539 ;
     - LAYER Metal2 RECT ( 41080 30540 ) ( 46080 32540 ) ;
     - LAYER Metal2 RECT ( 47280 30540 ) ( 52280 32540 ) ;
     - LAYER Metal2 RECT ( 53480 30540 ) ( 58480 32540 ) ;
-    - LAYER Metal2 RECT ( 59680 33740 ) ( 64680 35740 ) ;
-    - LAYER Metal2 RECT ( 34880 41840 ) ( 39880 43840 ) ;
-    - LAYER Metal2 RECT ( 41080 41840 ) ( 46080 43840 ) ;
-    - LAYER Metal2 RECT ( 47280 41840 ) ( 52280 43840 ) ;
-    - LAYER Metal2 RECT ( 53480 41840 ) ( 58480 43840 ) ;
-    - LAYER Metal2 RECT ( 59680 41840 ) ( 64680 43840 ) ;
-    - LAYER Metal2 RECT ( 34880 45040 ) ( 39880 47040 ) ;
-    - LAYER Metal2 RECT ( 41080 45040 ) ( 46080 47040 ) ;
-    - LAYER Metal2 RECT ( 47280 45040 ) ( 52280 47040 ) ;
-    - LAYER Metal2 RECT ( 53480 45040 ) ( 58480 47040 ) ;
-    - LAYER Metal2 RECT ( 16280 48240 ) ( 21280 50240 ) ;
-    - LAYER Metal2 RECT ( 28680 48240 ) ( 33680 50240 ) ;
-    - LAYER Metal2 RECT ( 34880 48240 ) ( 39880 50240 ) ;
-    - LAYER Metal2 RECT ( 41080 48240 ) ( 46080 50240 ) ;
-    - LAYER Metal2 RECT ( 47280 48240 ) ( 52280 50240 ) ;
-    - LAYER Metal2 RECT ( 53480 48240 ) ( 58480 50240 ) ;
-    - LAYER Metal2 RECT ( 59680 48240 ) ( 64680 50240 ) ;
-    - LAYER Metal2 RECT ( 10080 51440 ) ( 15080 53440 ) ;
-    - LAYER Metal2 RECT ( 16280 51440 ) ( 21280 53440 ) ;
-    - LAYER Metal2 RECT ( 22480 51440 ) ( 27480 53440 ) ;
-    - LAYER Metal2 RECT ( 28680 51440 ) ( 33680 53440 ) ;
-    - LAYER Metal2 RECT ( 34880 51440 ) ( 39880 53440 ) ;
-    - LAYER Metal2 RECT ( 41080 51440 ) ( 46080 53440 ) ;
-    - LAYER Metal2 RECT ( 47280 51440 ) ( 52280 53440 ) ;
-    - LAYER Metal2 RECT ( 53480 51440 ) ( 58480 53440 ) ;
-    - LAYER Metal2 RECT ( 10080 54640 ) ( 15080 56640 ) ;
-    - LAYER Metal2 RECT ( 16280 54640 ) ( 21280 56640 ) ;
-    - LAYER Metal2 RECT ( 28680 54640 ) ( 33680 56640 ) ;
-    - LAYER Metal2 RECT ( 34880 54640 ) ( 39880 56640 ) ;
-    - LAYER Metal2 RECT ( 41080 54640 ) ( 46080 56640 ) ;
-    - LAYER Metal2 RECT ( 47280 54640 ) ( 52280 56640 ) ;
-    - LAYER Metal2 RECT ( 53480 54640 ) ( 58480 56640 ) ;
-    - LAYER Metal2 RECT ( 59680 54640 ) ( 64680 56640 ) ;
-    - LAYER Metal2 RECT ( 10080 57840 ) ( 15080 59840 ) ;
-    - LAYER Metal2 RECT ( 28680 57840 ) ( 33680 59840 ) ;
-    - LAYER Metal2 RECT ( 34880 57840 ) ( 39880 59840 ) ;
-    - LAYER Metal2 RECT ( 41080 57840 ) ( 46080 59840 ) ;
-    - LAYER Metal2 RECT ( 47280 57840 ) ( 52280 59840 ) ;
-    - LAYER Metal2 RECT ( 53480 57840 ) ( 58480 59840 ) ;
-    - LAYER Metal2 RECT ( 10080 61040 ) ( 15080 63040 ) ;
-    - LAYER Metal2 RECT ( 16280 61040 ) ( 21280 63040 ) ;
-    - LAYER Metal2 RECT ( 22480 61040 ) ( 27480 63040 ) ;
-    - LAYER Metal2 RECT ( 28680 61040 ) ( 33680 63040 ) ;
-    - LAYER Metal2 RECT ( 34880 61040 ) ( 39880 63040 ) ;
-    - LAYER Metal2 RECT ( 41080 61040 ) ( 46080 63040 ) ;
-    - LAYER Metal2 RECT ( 47280 61040 ) ( 52280 63040 ) ;
-    - LAYER Metal2 RECT ( 53480 61040 ) ( 58480 63040 ) ;
-    - LAYER Metal2 RECT ( 10080 64240 ) ( 15080 66240 ) ;
-    - LAYER Metal2 RECT ( 16280 64240 ) ( 21280 66240 ) ;
-    - LAYER Metal2 RECT ( 28680 64240 ) ( 33680 66240 ) ;
-    - LAYER Metal2 RECT ( 34880 64240 ) ( 39880 66240 ) ;
-    - LAYER Metal2 RECT ( 41080 64240 ) ( 46080 66240 ) ;
-    - LAYER Metal2 RECT ( 47280 64240 ) ( 52280 66240 ) ;
-    - LAYER Metal2 RECT ( 53480 64240 ) ( 58480 66240 ) ;
-    - LAYER Metal2 RECT ( 59680 64240 ) ( 64680 66240 ) ;
+    - LAYER Metal2 RECT ( 34880 40160 ) ( 39880 42160 ) ;
+    - LAYER Metal2 RECT ( 41080 40160 ) ( 46080 42160 ) ;
+    - LAYER Metal2 RECT ( 47280 40160 ) ( 52280 42160 ) ;
+    - LAYER Metal2 RECT ( 34880 43360 ) ( 39880 45360 ) ;
+    - LAYER Metal2 RECT ( 41080 43360 ) ( 46080 45360 ) ;
+    - LAYER Metal2 RECT ( 47280 43360 ) ( 52280 45360 ) ;
+    - LAYER Metal2 RECT ( 53480 43360 ) ( 58480 45360 ) ;
+    - LAYER Metal2 RECT ( 28680 46560 ) ( 33680 48560 ) ;
+    - LAYER Metal2 RECT ( 34880 46560 ) ( 39880 48560 ) ;
+    - LAYER Metal2 RECT ( 41080 46560 ) ( 46080 48560 ) ;
+    - LAYER Metal2 RECT ( 47280 46560 ) ( 52280 48560 ) ;
+    - LAYER Metal2 RECT ( 53480 46560 ) ( 58480 48560 ) ;
+    - LAYER Metal2 RECT ( 59680 46560 ) ( 64680 48560 ) ;
+    - LAYER Metal2 RECT ( 10080 49760 ) ( 15080 51760 ) ;
+    - LAYER Metal2 RECT ( 16280 49760 ) ( 21280 51760 ) ;
+    - LAYER Metal2 RECT ( 28680 49760 ) ( 33680 51760 ) ;
+    - LAYER Metal2 RECT ( 34880 49760 ) ( 39880 51760 ) ;
+    - LAYER Metal2 RECT ( 41080 49760 ) ( 46080 51760 ) ;
+    - LAYER Metal2 RECT ( 47280 49760 ) ( 52280 51760 ) ;
+    - LAYER Metal2 RECT ( 53480 49760 ) ( 58480 51760 ) ;
+    - LAYER Metal2 RECT ( 59680 49760 ) ( 64680 51760 ) ;
+    - LAYER Metal2 RECT ( 10080 52960 ) ( 15080 54960 ) ;
+    - LAYER Metal2 RECT ( 16280 52960 ) ( 21280 54960 ) ;
+    - LAYER Metal2 RECT ( 22480 52960 ) ( 27480 54960 ) ;
+    - LAYER Metal2 RECT ( 28680 52960 ) ( 33680 54960 ) ;
+    - LAYER Metal2 RECT ( 34880 52960 ) ( 39880 54960 ) ;
+    - LAYER Metal2 RECT ( 41080 52960 ) ( 46080 54960 ) ;
+    - LAYER Metal2 RECT ( 47280 52960 ) ( 52280 54960 ) ;
+    - LAYER Metal2 RECT ( 53480 52960 ) ( 58480 54960 ) ;
+    - LAYER Metal2 RECT ( 10080 56160 ) ( 15080 58160 ) ;
+    - LAYER Metal2 RECT ( 28680 56160 ) ( 33680 58160 ) ;
+    - LAYER Metal2 RECT ( 34880 56160 ) ( 39880 58160 ) ;
+    - LAYER Metal2 RECT ( 41080 56160 ) ( 46080 58160 ) ;
+    - LAYER Metal2 RECT ( 47280 56160 ) ( 52280 58160 ) ;
+    - LAYER Metal2 RECT ( 53480 56160 ) ( 58480 58160 ) ;
+    - LAYER Metal2 RECT ( 59680 56160 ) ( 64680 58160 ) ;
+    - LAYER Metal2 RECT ( 10080 59360 ) ( 15080 61360 ) ;
+    - LAYER Metal2 RECT ( 28680 59360 ) ( 33680 61360 ) ;
+    - LAYER Metal2 RECT ( 34880 59360 ) ( 39880 61360 ) ;
+    - LAYER Metal2 RECT ( 41080 59360 ) ( 46080 61360 ) ;
+    - LAYER Metal2 RECT ( 47280 59360 ) ( 52280 61360 ) ;
+    - LAYER Metal2 RECT ( 53480 59360 ) ( 58480 61360 ) ;
+    - LAYER Metal2 RECT ( 10080 62560 ) ( 15080 64560 ) ;
+    - LAYER Metal2 RECT ( 16280 62560 ) ( 21280 64560 ) ;
+    - LAYER Metal2 RECT ( 28680 62560 ) ( 33680 64560 ) ;
+    - LAYER Metal2 RECT ( 34880 62560 ) ( 39880 64560 ) ;
+    - LAYER Metal2 RECT ( 41080 62560 ) ( 46080 64560 ) ;
+    - LAYER Metal2 RECT ( 47280 62560 ) ( 52280 64560 ) ;
+    - LAYER Metal2 RECT ( 53480 62560 ) ( 58480 64560 ) ;
+    - LAYER Metal2 RECT ( 59680 62560 ) ( 64680 64560 ) ;
+    - LAYER Metal2 RECT ( 10080 65760 ) ( 15080 67760 ) ;
+    - LAYER Metal2 RECT ( 16280 65760 ) ( 21280 67760 ) ;
+    - LAYER Metal2 RECT ( 22480 65760 ) ( 27480 67760 ) ;
+    - LAYER Metal2 RECT ( 28680 65760 ) ( 33680 67760 ) ;
+    - LAYER Metal2 RECT ( 34880 65760 ) ( 39880 67760 ) ;
+    - LAYER Metal2 RECT ( 41080 65760 ) ( 46080 67760 ) ;
+    - LAYER Metal2 RECT ( 47280 65760 ) ( 52280 67760 ) ;
+    - LAYER Metal2 RECT ( 53480 65760 ) ( 58480 67760 ) ;
     - LAYER Metal3 RECT ( 16480 46405 ) ( 18480 51405 ) ;
     - LAYER Metal3 RECT ( 10080 52605 ) ( 12080 57605 ) ;
     - LAYER Metal3 RECT ( 13280 52605 ) ( 15280 57605 ) ;
@@ -537,6 +540,7 @@ FILLS 539 ;
     - LAYER Metal3 RECT ( 45280 36140 ) ( 47280 41140 ) ;
     - LAYER Metal3 RECT ( 48480 36140 ) ( 50480 41140 ) ;
     - LAYER Metal3 RECT ( 51680 36140 ) ( 53680 41140 ) ;
+    - LAYER Metal3 RECT ( 64480 36140 ) ( 66480 41140 ) ;
     - LAYER Metal3 RECT ( 26080 42340 ) ( 28080 47340 ) ;
     - LAYER Metal3 RECT ( 29280 42340 ) ( 31280 47340 ) ;
     - LAYER Metal3 RECT ( 32480 42340 ) ( 34480 47340 ) ;
@@ -1255,12 +1259,13 @@ NETS 27 ;
       NEW Metal2 ( 7200 46620 ) Via2_YX_so
       NEW Metal1 ( 13680 46620 ) Via1_YX_so ;
     - counter_value_o[2] ( PIN counter_value_o[2] ) ( output5 X ) + USE SIGNAL
-      + ROUTED Metal2 ( 74880 39900 ) ( 79680 * 0 )
-      NEW Metal2 ( 74880 39480 ) ( * 39900 )
-      NEW Metal2 ( 65760 39480 ) ( 74880 * )
-      NEW Metal2 ( 65760 39060 ) ( * 39480 )
-      NEW Metal2 ( 63120 39060 ) ( 65760 * )
-      NEW Metal1 ( 63120 39060 ) Via1_YX_so ;
+      + ROUTED Metal2 ( 75360 39900 ) ( 79680 * 0 )
+      NEW Metal3 ( 75360 39900 ) ( * 40740 )
+      NEW Metal3 ( 74400 40740 ) ( 75360 * )
+      NEW Metal2 ( 63120 40740 ) ( 74400 * )
+      NEW Metal2 ( 75360 39900 ) Via2_YX_so
+      NEW Metal2 ( 74400 40740 ) Via2_YX_so
+      NEW Metal1 ( 63120 40740 ) Via1_YX_so ;
     - counter_value_o[3] ( PIN counter_value_o[3] ) ( output6 X ) + USE SIGNAL
       + ROUTED Metal2 ( 66480 39060 ) ( 79680 * 0 )
       NEW Metal1 ( 66480 39060 ) Via1_YX_so ;
@@ -1291,17 +1296,17 @@ NETS 27 ;
       NEW Metal1 ( 14400 35700 ) Via1_YX_so
       NEW Metal2 ( 11040 39900 ) RECT ( -575 -100 0 100 )  ;
     - net2 ( input2 X ) ( counter_0.n20_q\[3\]$_DFFE_PN0P_ RESET_B ) ( counter_0.n20_q\[2\]$_DFFE_PN0P_ RESET_B ) ( counter_0.n20_q\[1\]$_DFFE_PN0P_ RESET_B ) ( counter_0.n20_q\[0\]$_DFFE_PN0P_ RESET_B ) + USE SIGNAL
-      + ROUTED Metal2 ( 29280 39480 0 ) ( * 39900 )
-      NEW Metal3 ( 21600 36120 ) ( * 38640 )
-      NEW Metal2 ( 21600 38640 ) ( 22080 * )
-      NEW Metal2 ( 22080 38640 ) ( * 39480 0 )
-      NEW Metal3 ( 21600 38640 ) ( * 43680 )
+      + ROUTED Metal2 ( 65760 36120 ) ( * 39480 )
+      NEW Metal2 ( 65760 39480 ) ( 67920 * )
+      NEW Metal3 ( 21600 39480 ) ( 22080 * )
+      NEW Metal3 ( 21600 36120 ) ( * 39480 )
+      NEW Metal3 ( 21600 39480 ) ( * 43680 )
       NEW Metal2 ( 19200 31920 0 ) ( 21600 * )
       NEW Metal3 ( 21600 31920 ) ( * 36120 )
-      NEW Metal2 ( 29280 39900 ) ( 67920 * )
-      NEW Metal1 ( 67920 39900 ) Via1_XXW_so
+      NEW Metal2 ( 28800 36120 0 ) ( 65760 * )
+      NEW Metal1 ( 67920 39480 ) Via1_XXW_so
+      NEW Metal2 ( 22080 39480 ) Via2_YX_so
       NEW Metal2 ( 21600 36120 ) Via2_YX_so
-      NEW Metal2 ( 21600 38640 ) Via2_YX_so
       NEW Metal2 ( 21600 43680 ) Via2_YX_so
       NEW Metal2 ( 21600 31920 ) Via2_YX_so ;
     - net3 ( output3 A ) ( counter_0.n20_q\[0\]$_DFFE_PN0P_ Q ) ( _16_ B ) ( _14_ B ) ( _12_ A ) ( _11_ A ) + USE SIGNAL
@@ -1379,21 +1384,24 @@ NETS 27 ;
       NEW Metal2 ( 18240 35700 ) RECT ( 0 -100 575 100 ) 
       NEW Metal3 ( 18240 36960 ) RECT ( -100 -575 100 0 )  ;
     - net6 ( output6 A ) ( counter_0.n20_q\[3\]$_DFFE_PN0P_ Q ) ( _17_ A ) + USE SIGNAL
-      + ROUTED Metal3 ( 65280 39480 ) ( * 40740 )
+      + ROUTED Metal2 ( 64800 39480 ) ( 65280 * )
+      NEW Metal2 ( 32640 39060 ) ( 64800 * )
+      NEW Metal2 ( 64800 39060 ) ( * 39480 )
       NEW Metal2 ( 18720 39900 ) ( 21600 * )
       NEW Metal2 ( 21600 39900 ) ( * 40740 )
       NEW Metal2 ( 21600 40740 ) ( 32640 * )
-      NEW Metal2 ( 32640 40740 ) ( 65280 * )
-      NEW Metal2 ( 65280 40740 ) Via2_YX_so
       NEW Metal1 ( 65280 39480 ) Via1_YX_so
-      NEW Metal2 ( 65280 39480 ) Via2_YX_so
-      NEW Metal1 ( 32640 40740 ) Via1_YX_so
+      NEW Metal1 ( 32640 39060 ) Via1_YX_so
       NEW Metal1 ( 18720 39900 ) Via1_YX_so
-      NEW Metal2 ( 65280 39480 ) RECT ( -575 -100 0 100 )  ;
+      NEW Metal1 ( 32640 40740 ) Via1_YX_so ;
     - reset_n_i ( PIN reset_n_i ) ( input2 A ) + USE SIGNAL
-      + ROUTED Metal2 ( 74400 40740 ) ( 79680 * 0 )
-      NEW Metal2 ( 74400 39900 ) ( * 40740 )
-      NEW Metal2 ( 68895 39900 ) ( 74400 * )
+      + ROUTED Metal2 ( 75840 40740 ) ( 79680 * 0 )
+      NEW Metal3 ( 75840 39480 ) ( * 40740 )
+      NEW Metal2 ( 74880 39480 ) ( 75840 * )
+      NEW Metal2 ( 74880 39480 ) ( * 39900 )
+      NEW Metal2 ( 68895 39900 ) ( 74880 * )
+      NEW Metal2 ( 75840 40740 ) Via2_YX_so
+      NEW Metal2 ( 75840 39480 ) Via2_YX_so
       NEW Metal1 ( 68895 39900 ) Via1_XXW_so ;
 END NETS
 END DESIGN

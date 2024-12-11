@@ -29,7 +29,7 @@ Clock core_clock
 finish report_checks -path_delay min
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
+Endpoint: counter_0.n20_q[2]$_DFFE_PN0P_
           (removal check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: min
@@ -42,9 +42,9 @@ Fanout     Cap    Slew   Delay    Time   Description
      1    0.00    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
                   0.00    0.00   25.00 ^ input2/A (sg13g2_buf_2)
-     4    0.03    0.08    0.09   25.09 ^ input2/X (sg13g2_buf_2)
+     4    0.03    0.07    0.09   25.09 ^ input2/X (sg13g2_buf_2)
                                          net2 (net)
-                  0.08    0.00   25.10 ^ counter_0.n20_q[3]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
+                  0.07    0.00   25.10 ^ counter_0.n20_q[2]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
                                  25.10   data arrival time
 
                           0.00    0.00   clock core_clock (rise edge)
@@ -54,10 +54,10 @@ Fanout     Cap    Slew   Delay    Time   Description
                   0.00    0.00    0.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
      2    0.01    0.05    0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00    0.07 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09    0.15 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
-                                         clknet_1_1__leaf_clock_i (net)
-                  0.05    0.00    0.16 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+                  0.05    0.00    0.07 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.05    0.09    0.15 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
+                                         clknet_1_0__leaf_clock_i (net)
+                  0.05    0.00    0.16 ^ counter_0.n20_q[2]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                           0.00    0.16   clock reconvergence pessimism
                          -0.11    0.04   library removal time
                                   0.04   data required time
@@ -135,9 +135,9 @@ Fanout     Cap    Slew   Delay    Time   Description
      1    0.00    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
                   0.00    0.00   25.00 ^ input2/A (sg13g2_buf_2)
-     4    0.03    0.08    0.09   25.09 ^ input2/X (sg13g2_buf_2)
+     4    0.03    0.07    0.09   25.09 ^ input2/X (sg13g2_buf_2)
                                          net2 (net)
-                  0.08    0.00   25.10 ^ counter_0.n20_q[1]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
+                  0.07    0.00   25.10 ^ counter_0.n20_q[1]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
                                  25.10   data arrival time
 
                         125.00  125.00   clock core_clock (rise edge)
@@ -218,9 +218,9 @@ Fanout     Cap    Slew   Delay    Time   Description
      1    0.00    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
                   0.00    0.00   25.00 ^ input2/A (sg13g2_buf_2)
-     4    0.03    0.08    0.09   25.09 ^ input2/X (sg13g2_buf_2)
+     4    0.03    0.07    0.09   25.09 ^ input2/X (sg13g2_buf_2)
                                          net2 (net)
-                  0.08    0.00   25.10 ^ counter_0.n20_q[1]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
+                  0.07    0.00   25.10 ^ counter_0.n20_q[1]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
                                  25.10   data arrival time
 
                         125.00  125.00   clock core_clock (rise edge)
@@ -442,12 +442,12 @@ Path Type: min
 ==========================================================================
 finish critical path target clock latency max path
 --------------------------------------------------------------------------
-0.1552
+0.1551
 
 ==========================================================================
 finish critical path target clock latency min path
 --------------------------------------------------------------------------
-0.1552
+0.1553
 
 ==========================================================================
 finish critical path source clock latency min path
@@ -457,17 +457,17 @@ finish critical path source clock latency min path
 ==========================================================================
 finish critical path delay
 --------------------------------------------------------------------------
-0.5059
+0.5058
 
 ==========================================================================
 finish critical path slack
 --------------------------------------------------------------------------
-99.4941
+99.4942
 
 ==========================================================================
 finish slack div critical path delay
 --------------------------------------------------------------------------
-19666.752323
+19670.660340
 
 ==========================================================================
 finish report_power
@@ -475,11 +475,11 @@ finish report_power
 Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
-Sequential             3.79e-06   3.97e-07   2.15e-09   4.19e-06  73.0%
-Combinational          5.53e-07   2.02e-07   1.81e-09   7.57e-07  13.2%
+Sequential             3.79e-06   3.96e-07   2.15e-09   4.19e-06  73.1%
+Combinational          5.53e-07   1.92e-07   1.81e-09   7.47e-07  13.1%
 Clock                  2.80e-07   3.25e-07   1.85e-07   7.90e-07  13.8%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  4.62e-06   9.25e-07   1.89e-07   5.74e-06 100.0%
-                          80.6%      16.1%       3.3%
+Total                  4.62e-06   9.13e-07   1.89e-07   5.72e-06 100.0%
+                          80.7%      16.0%       3.3%

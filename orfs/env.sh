@@ -8,15 +8,13 @@ if [ -f /opt/rh/rh-python38/enable ]; then
   source /opt/rh/rh-python38/enable
 fi
 
-export OPENROAD=/foss/tools/openroad
+export OPENROAD=/foss/tools/openroad-latest
 echo "OpenROAD: ${OPENROAD}"
 
-# export OPENROAD_EXE=/foss/tools/openroad-latest/bin/openroad
-export OPENROAD_EXE=/foss/tools/openroad/bin/openroad
+export OPENROAD_EXE=/foss/tools/openroad-latest/bin/openroad
 echo "OpenROAD EXE: ${OPENROAD_EXE}"
 
-# export OPENSTA_EXE=/foss/tools/openroad-latest/bin/sta
-export OPENSTA_EXE=/foss/tools/openroad/bin/sta
+export OPENSTA_EXE=/foss/tools/openroad-latest/bin/sta
 echo "OpenSTA EXE: ${OPENSTA_EXE}"
 
 export YOSYS_EXE=/foss/tools/yosys/bin/yosys
