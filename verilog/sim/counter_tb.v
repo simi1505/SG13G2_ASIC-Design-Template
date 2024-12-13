@@ -32,7 +32,7 @@ module counter_tb;
     .counter_value_o(counter_value)
   );
 	
-	//Generate clock
+	// Generate clock
 	/* verilator lint_off STMTDLY */
 	always begin
     #((1e9 / (2 * CLK_FREQ))); // Calculate half-period in nanoseconds
