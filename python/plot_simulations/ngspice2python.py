@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-# Master-Thesis
-# @ JKU IIC / ISP
-# 2024
 # Author: Simon Dorrer
 # Description: Module for loading ngspice files into Python.
 # Created: 02.04.2024
