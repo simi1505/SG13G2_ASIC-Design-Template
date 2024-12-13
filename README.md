@@ -37,6 +37,6 @@ For more detailed information, please refer to Option B in `SG13G2_ASIC-Design-T
 
 The VHDL code is simulated with `GHDL` & `GTKWave` (counter_tb.gtkw ) or `Modelsim` (sim.do). The VHDL simulation can be executed with `simulate_vhdl.sh`. The Verilog code is simulated with `verilator` & `iverilog` & `GTKWave` or `Modelsim` (sim_verilog_tb.do or sim_vhdl_tb.do). The Verilog simulation can be executed with `simulate_verilog.sh`. Alternatively, one can use `Surfer` instead of `GTKWave`. Further information can be found in the YouTube video.
 
-#### Exporting Ngspice data and plotting them with Python
+#### Exporting Ngspice data and plotting them with Python:
 
-The data can not only be shown within Xschem but, of course, exported as a .txt file, read with Python and the function `ngspice2python.py`, and finally plotted with Matplotlib. If you navigate into `foss/designs/SG13G2_ASIC-Design-Template/python/plot_simulations` and execute `python3 plot_counter_board_tb_tran.py`, the plot will pop up.
+The data can not only be shown within Xschem but, of course, exported as a .txt file, read with Python and the function `loadngspicecol` in `ngspice2python.py`, and finally plotted with Matplotlib. If you navigate into `foss/designs/SG13G2_ASIC-Design-Template/python/plot_simulations` and execute `python3 plot_counter_board_tb_tran.py`, the plot will pop up.
