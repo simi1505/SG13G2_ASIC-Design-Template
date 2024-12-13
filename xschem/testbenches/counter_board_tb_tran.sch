@@ -13,7 +13,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-06
+x2=4e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -70,7 +70,7 @@ C {devices/launcher.sym} 1640 -1030 0 0 {name=h1
 descr="Load waves" 
 tclcommand="xschem raw_read $netlist_dir/counter_board_tb_tran.raw tran"
 }
-C {code_shown.sym} 160 -1330 0 0 {name=NGSPICE
+C {code_shown.sym} 80 -1510 0 0 {name=NGSPICE
 only_toplevel=false
 value="
 *True Mixed Signal Simulation (.xspice)
@@ -82,18 +82,33 @@ value="
 .control
 save all
 
-* Operating Point Analysis
-op
-remzerovec
-write counter_board_tb_tran.raw
-set appendwrite
-
 * Transient Analysis
 tran 1n 4u
 write counter_board_tb_tran.raw
 
 plot v(clock) v(enable) v(reset_n)
 plot v(b3) v(b2) v(b1) v(b0)
+
+* Writing Data
+set wr_singlescale
+set wr_vecnames
+
+let clock = clock
+let enable = enable
+let reset_n = reset_n
+let b0 = b0
+let b1 = b1
+let b2 = b2
+let b3 = b3
+
+wrdata /foss/designs/SG13G2_ASIC-Design-Template/python/plot_simulations/data/counter_board_tb_tran.txt clock enable reset_n b0 b1 b2 b3
+
+set appendwrite
+
+* Operating Point Analysis
+op
+remzerovec
+write counter_board_tb_tran.raw
 
 quit
 .endc"}
@@ -103,7 +118,7 @@ C {devices/lab_wire.sym} 1200 -860 0 0 {name=p3 sig_type=std_logic lab=clock}
 C {devices/lab_wire.sym} 1200 -740 0 0 {name=p4 sig_type=std_logic lab=reset_n}
 C {devices/vsource.sym} 740 -650 0 0 {name=vrst value="pulse(0 1.5 \{1/fclk\} 10p 10p \{0.5/fclk*100\} \{1/fclk*100\})"
 }
-C {devices/code_shown.sym} 160 -390 0 0 {name=MODEL only_toplevel=true
+C {devices/code_shown.sym} 80 -390 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
 .lib cornerMOSlv.lib mos_tt

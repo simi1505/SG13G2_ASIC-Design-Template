@@ -13,6 +13,7 @@ cd $(dirname "$0")
 VERILOG=${VERILOG:-verilog/rtl}
 ORFS=${ORFS:-orfs}
 XSPICE=${XSPICE:-xspice}
+PYTHON=${PYTHON:-python/plot_simulations/data}
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 # Clean vhdl2verilog
@@ -29,6 +30,11 @@ cd "$SCRIPT_DIR"
 # Clean Xspice (remove all sub-directories of the xspice folder)
 cd "$XSPICE"
 rm -r -- */
+cd "$SCRIPT_DIR"
+
+# Clean Ngspice simulation data for Python
+cd "$PYTHON"
+rm -f *.txt
 cd "$SCRIPT_DIR"
 
 # Finish
