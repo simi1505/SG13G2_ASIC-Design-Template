@@ -12,13 +12,13 @@ import ngspice2python as ng
 # ============================================
 
 plt.close("all")
-# %matplotlib qt
+%matplotlib qt
 # %matplotlib inline
 # ============================================
 
 # Latex font settings in plot
-# plt.rc('text', usetex = True)
-# plt.rc('font', family = 'serif', size = 14)
+plt.rc('text', usetex = True)
+plt.rc('font', family = 'serif', size = 14)
 # ============================================
 
 # Main
@@ -39,31 +39,31 @@ if __name__ == '__main__':
     fig1.set_figwidth(16)
     fig1.set_figheight(9)
     axs[0].plot(data_time, data_clock)
-    axs[0].set_xlabel('$t$ (us)')
+    axs[0].set_xlabel('$t$ ($\mu$s)')
     axs[0].set_ylabel('Clock (V)')
     axs[0].grid(True)
     axs[1].plot(data_time, data_reset_n)
-    axs[1].set_xlabel('$t$ (us)')
+    axs[1].set_xlabel('$t$ ($\mu$s)')
     axs[1].set_ylabel('Reset_n (V)')
     axs[1].grid(True)
     axs[2].plot(data_time, data_enable)
-    axs[2].set_xlabel('$t$ (us)')
+    axs[2].set_xlabel('$t$ ($\mu$s)')
     axs[2].set_ylabel('Enable (V)')
     axs[2].grid(True)
     axs[3].plot(data_time, data_b0)
-    axs[3].set_xlabel('$t$ (us)')
+    axs[3].set_xlabel('$t$ ($\mu$s)')
     axs[3].set_ylabel('b0 (V)')
     axs[3].grid(True)
     axs[4].plot(data_time, data_b1)
-    axs[4].set_xlabel('$t$ (us)')
+    axs[4].set_xlabel('$t$ ($\mu$s)')
     axs[4].set_ylabel('b1 (V)')
     axs[4].grid(True)
     axs[5].plot(data_time, data_b2)
-    axs[5].set_xlabel('$t$ (us)')
+    axs[5].set_xlabel('$t$ ($\mu$s)')
     axs[5].set_ylabel('b2 (V)')
     axs[5].grid(True)
     axs[6].plot(data_time, data_b3)
-    axs[6].set_xlabel('$t$ (us)')
+    axs[6].set_xlabel('$t$ ($\mu$s)')
     axs[6].set_ylabel('b3 (V)')
     axs[6].grid(True)
     plt.tight_layout(pad=0.5, w_pad=0.1, h_pad=0.1)
