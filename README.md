@@ -40,3 +40,5 @@ The VHDL code is simulated with `GHDL` & `GTKWave` (counter_tb.gtkw ) or `Models
 #### Exporting Ngspice data and plotting them with Python:
 
 The data can not only be shown within Xschem but, of course, exported as a .txt file, read with Python and the function `loadngspicecol` in `ngspice2python.py`, and finally plotted with Matplotlib. If you navigate into `foss/designs/SG13G2_ASIC-Design-Template/python/plot_simulations` and execute `python3 plot_counter_board_tb_tran.py`, the plot will pop up.
+
+![Ngspice data plotted with Python](C:\Users\si150\eda\designs\SG13G2_ASIC-Design-Template\python\plot_simulations\figures\counter_board_simulation.png)
