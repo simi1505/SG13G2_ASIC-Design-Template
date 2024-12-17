@@ -68,4 +68,8 @@ if __name__ == '__main__':
     axs[6].grid(True)
     plt.tight_layout(pad=0.5, w_pad=0.1, h_pad=0.1)
     plt.show()
+    
+    fig1.savefig("figures/counter_board_simulation.svg", bbox_inches='tight')
+    fig1.savefig("figures/counter_board_simulation.eps", bbox_inches='tight')
+    fig1.savefig("figures/counter_board_simulation.png", bbox_inches='tight')
 # ============================================
