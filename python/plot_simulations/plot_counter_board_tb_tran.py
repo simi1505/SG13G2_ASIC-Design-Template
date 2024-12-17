@@ -71,5 +71,4 @@ if __name__ == '__main__':
     
     fig1.savefig("figures/counter_board_simulation.svg", bbox_inches='tight')
     fig1.savefig("figures/counter_board_simulation.eps", bbox_inches='tight')
-    fig1.savefig("figures/counter_board_simulation.png", bbox_inches='tight')
 # ============================================
