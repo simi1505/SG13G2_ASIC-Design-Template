@@ -33,6 +33,10 @@ If you want to use other OpenROAD-compatible PDKs, just add the corresponding fi
 
 For more detailed information, please refer to Option B in `SG13G2_ASIC-Design-Template/doc/AMS_simulation.pdf` or the YouTube video.
 
+#### Hierarchical synthesis:
+
+If you want to see the area per module / entity of your digital core, you can set `export SYNTH_HIERARCHICAL=1` in `run_all.sh` and open the hierarchy browser in the OpenROAD GUI. If it is disabled, check the box under `Windows/Hierarchy Browser`.
+
 #### Simulation details:
 
 The VHDL code is simulated with `GHDL` & `GTKWave` (counter_tb.gtkw ) or `Modelsim` (sim.do). The VHDL simulation can be executed with `simulate_vhdl.sh`. The Verilog code is simulated with `verilator` & `iverilog` & `GTKWave` or `Modelsim` (sim_verilog_tb.do or sim_vhdl_tb.do). The Verilog simulation can be executed with `simulate_verilog.sh`. Alternatively, one can use `Surfer` instead of `GTKWave`. Further information can be found in the YouTube video.

@@ -3,7 +3,6 @@
   "modules": {
     "counter_4_16": {
       "attributes": {
-        "keep_hierarchy": "00000000000000000000000000000001",
         "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:1.1-32.10",
         "hdlname": "counter_4_16"
       },
@@ -222,7 +221,6 @@
     },
     "counter_board": {
       "attributes": {
-        "keep_hierarchy": "00000000000000000000000000000001",
         "src": "/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/../../verilog/rtl/counter_board.v:34.1-53.10",
         "top": "00000000000000000000000000000001",
         "hdlname": "counter_board"

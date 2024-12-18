@@ -1,33 +1,33 @@
 
-18. Printing statistics.
+9. Printing statistics.
 
 === counter_4_16 ===
 
-   Number of wires:                 16
-   Number of wire bits:             19
-   Number of public wires:           4
-   Number of public wire bits:       7
+   Number of wires:                 43
+   Number of wire bits:             58
+   Number of public wires:           8
+   Number of public wire bits:      23
    Number of ports:                  4
    Number of port bits:              7
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 12
+   Number of cells:                 15
      sg13g2_dfrbp_1                  4
-     sg13g2_inv_1                    1
+     sg13g2_inv_1                    4
      sg13g2_nand2_1                  1
      sg13g2_nand3_1                  1
      sg13g2_nand4_1                  1
      sg13g2_xnor2_1                  3
      sg13g2_xor2_1                   1
 
-   Chip area for module '\counter_4_16': 279.417600
-     of which used for sequential elements: 188.697600 (67.53%)
+   Chip area for module '\counter_4_16': 295.747200
+     of which used for sequential elements: 188.697600 (63.80%)
 
 === counter_board ===
 
-   Number of wires:                  5
-   Number of wire bits:              8
+   Number of wires:                  7
+   Number of wire bits:             10
    Number of public wires:           5
    Number of public wire bits:       8
    Number of ports:                  4
@@ -49,18 +49,18 @@
    counter_board                     1
      counter_4_16                    1
 
-   Number of wires:                 21
-   Number of wire bits:             27
-   Number of public wires:           9
-   Number of public wire bits:      15
+   Number of wires:                 50
+   Number of wire bits:             68
+   Number of public wires:          13
+   Number of public wire bits:      31
    Number of ports:                  8
    Number of port bits:             14
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 13
+   Number of cells:                 16
      sg13g2_dfrbp_1                  4
-     sg13g2_inv_1                    1
+     sg13g2_inv_1                    4
      sg13g2_inv_2                    1
      sg13g2_nand2_1                  1
      sg13g2_nand3_1                  1
@@ -68,6 +68,6 @@
      sg13g2_xnor2_1                  3
      sg13g2_xor2_1                   1
 
-   Chip area for top module '\counter_board': 286.675200
-     of which used for sequential elements: 188.697600 (65.82%)
+   Chip area for top module '\counter_board': 303.004800
+     of which used for sequential elements: 188.697600 (62.28%)
 
