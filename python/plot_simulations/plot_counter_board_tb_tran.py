@@ -34,6 +34,16 @@ if __name__ == '__main__':
     data_b2 = ng.loadngspicecol("data/counter_board_tb_tran.txt", "b2")
     data_b3 = ng.loadngspicecol("data/counter_board_tb_tran.txt", "b3")
     
+    # Subsampling data (every 4th value)
+    data_time = data_time[1::4]
+    data_clock = data_clock[1::4]
+    data_enable = data_enable[1::4]
+    data_reset_n = data_reset_n[1::4]
+    data_b0 = data_b0[1::4]
+    data_b1 = data_b1[1::4]
+    data_b2 = data_b2[1::4]
+    data_b3 = data_b3[1::4]
+    
     # Plot Data
     fig1, axs = plt.subplots(7)
     fig1.set_figwidth(16)
@@ -71,4 +81,7 @@ if __name__ == '__main__':
     
     fig1.savefig("figures/counter_board_simulation.svg", bbox_inches='tight')
     fig1.savefig("figures/counter_board_simulation.eps", bbox_inches='tight')
+    np.savetxt("figures/counter_board_simulation.csv",
+                np.column_stack((data_time, data_clock, data_reset_n, data_enable, data_b0, data_b1, data_b2, data_b3)), comments = "", 
+                header = "time,clock,reset_n,enable,b0,b1,b2,b3", delimiter = ",")
 # ============================================
