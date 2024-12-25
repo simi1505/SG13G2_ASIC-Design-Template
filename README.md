@@ -19,7 +19,7 @@ If you want to use other OpenROAD-compatible PDKs, just add the corresponding fi
 
 #### Step-by-step introduction:
 
-1. Clone this repo into the `foss/designs` folder of your IIC-OSIC-Tools environment with `git clone https://github.com/simi1505/SG13G2_ASIC-Design-Template.git`.
+1. Download this repo and copy it into the `foss/designs` folder of your IIC-OSIC-Tools environment.
 2. Copy the `.designinit` file from `foss/designs/SG13G2_ASIC-Design-Template` to `foss/designs` and check the path for Xschem. This will change the used PDK to SG13G2 by IHP.
 3. Rename the repo as you wish.
 4. Execute `clean_all.sh` to remove any build files.
