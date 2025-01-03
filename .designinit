@@ -3,6 +3,8 @@
 export PDK=sg13g2
 export PDKPATH=$PDK_ROOT/$PDK
 export STD_CELL_LIBRARY=sg13g2_stdcell
-export SPICE_USERINIT_DIR=$PDK_ROOT/$PDK/libs.tech/ngspice 
+export SPICE_USERINIT_DIR=$PDKPATH/libs.tech/ngspice
+export KLAYOUT_PATH=$PDKPATH/libs.tech/klayout:$PDKPATH/libs.tech/klayout/tech
+
 # Set path for Xschem
 export XSCHEM_USER_LIBRARY_PATH=$DESIGNS/SG13G2_ASIC-Design-Template/xschem
