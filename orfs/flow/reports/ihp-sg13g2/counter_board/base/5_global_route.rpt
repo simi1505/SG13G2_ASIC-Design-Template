@@ -12,24 +12,24 @@ wns 0.00
 ==========================================================================
 global route report_worst_slack
 --------------------------------------------------------------------------
-worst slack 99.49
+worst slack 99.48
 
 ==========================================================================
 global route report_clock_skew
 --------------------------------------------------------------------------
 Clock core_clock
-   0.16 source latency counter_0/n20_q[0]$_DFFE_PP0P_/CLK ^
-  -0.16 target latency counter_0/n20_q[3]$_DFFE_PP0P_/CLK ^
+   0.17 source latency counter_0.n20_q[1]$_DFFE_PN0P_/CLK ^
+  -0.16 target latency counter_0.n20_q[2]$_DFFE_PN0P_/CLK ^
    0.00 CRPR
 --------------
-   0.00 setup skew
+   0.01 setup skew
 
 
 ==========================================================================
 global route report_checks -path_delay min
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0/n20_q[0]$_DFFE_PP0P_
+Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
           (removal check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: min
@@ -39,44 +39,38 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (propagated)
                          25.00   25.00 ^ input external delay
-     1    0.01    0.00    0.00   25.00 ^ reset_n_i (in)
+     1    0.00    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
-                  0.00    0.00   25.00 ^ input2/A (sg13g2_buf_1)
-     1    0.01    0.05    0.07   25.07 ^ input2/X (sg13g2_buf_1)
+                  0.00    0.00   25.00 ^ input2/A (sg13g2_buf_2)
+     4    0.03    0.08    0.10   25.10 ^ input2/X (sg13g2_buf_2)
                                          net2 (net)
-                  0.05    0.00   25.07 ^ _0_/A (sg13g2_inv_2)
-     1    0.01    0.02    0.04   25.11 v _0_/Y (sg13g2_inv_2)
-                                         n1_o (net)
-                  0.02    0.00   25.11 v counter_0/_12_/A (sg13g2_inv_2)
-     4    0.03    0.07    0.07   25.17 ^ counter_0/_12_/Y (sg13g2_inv_2)
-                                         counter_0/_00_ (net)
-                  0.07    0.00   25.17 ^ counter_0/n20_q[0]$_DFFE_PP0P_/RESET_B (sg13g2_dfrbp_1)
-                                 25.17   data arrival time
+                  0.08    0.00   25.10 ^ counter_0.n20_q[3]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
+                                 25.10   data arrival time
 
                           0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock source latency
      1    0.00    0.00    0.00    0.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00    0.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00    0.07 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09    0.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
-                                         clknet_1_0__leaf_clock_i (net)
-                  0.05    0.00    0.16 ^ counter_0/n20_q[0]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-                          0.00    0.16   clock reconvergence pessimism
-                         -0.11    0.05   library removal time
-                                  0.05   data required time
+                  0.06    0.00    0.08 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.05    0.10    0.17 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
+                                         clknet_1_1__leaf_clock_i (net)
+                  0.05    0.00    0.17 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+                          0.00    0.17   clock reconvergence pessimism
+                         -0.11    0.06   library removal time
+                                  0.06   data required time
 -----------------------------------------------------------------------------
-                                  0.05   data required time
-                                -25.17   data arrival time
+                                  0.06   data required time
+                                -25.10   data arrival time
 -----------------------------------------------------------------------------
-                                 25.12   slack (MET)
+                                 25.03   slack (MET)
 
 
-Startpoint: counter_0/n20_q[3]$_DFFE_PP0P_
+Startpoint: counter_0.n20_q[3]$_DFFE_PN0P_
             (rising edge-triggered flip-flop clocked by core_clock)
-Endpoint: counter_0/n20_q[3]$_DFFE_PP0P_
+Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
           (rising edge-triggered flip-flop clocked by core_clock)
 Path Group: core_clock
 Path Type: min
@@ -88,39 +82,39 @@ Fanout     Cap    Slew   Delay    Time   Description
      1    0.00    0.00    0.00    0.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00    0.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00    0.07 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09    0.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
+                  0.06    0.00    0.08 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.05    0.10    0.17 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
                                          clknet_1_1__leaf_clock_i (net)
-                  0.05    0.00    0.16 ^ counter_0/n20_q[3]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-     2    0.01    0.05    0.24    0.39 ^ counter_0/n20_q[3]$_DFFE_PP0P_/Q (sg13g2_dfrbp_1)
+                  0.05    0.00    0.17 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+     2    0.01    0.05    0.23    0.41 ^ counter_0.n20_q[3]$_DFFE_PN0P_/Q (sg13g2_dfrbp_1)
                                          net6 (net)
-                  0.05    0.00    0.39 ^ counter_0/_19_/A (sg13g2_xnor2_1)
-     1    0.00    0.04    0.07    0.46 v counter_0/_19_/Y (sg13g2_xnor2_1)
-                                         counter_0/_04_ (net)
-                  0.04    0.00    0.46 v counter_0/n20_q[3]$_DFFE_PP0P_/D (sg13g2_dfrbp_1)
-                                  0.46   data arrival time
+                  0.05    0.00    0.41 ^ _17_/A (sg13g2_xnor2_1)
+     1    0.00    0.03    0.06    0.47 v _17_/Y (sg13g2_xnor2_1)
+                                         _03_ (net)
+                  0.03    0.00    0.47 v counter_0.n20_q[3]$_DFFE_PN0P_/D (sg13g2_dfrbp_1)
+                                  0.47   data arrival time
 
                           0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock source latency
      1    0.00    0.00    0.00    0.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00    0.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00    0.07 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09    0.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
+                  0.06    0.00    0.08 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.05    0.10    0.17 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
                                          clknet_1_1__leaf_clock_i (net)
-                  0.05    0.00    0.16 ^ counter_0/n20_q[3]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-                          0.00    0.16   clock reconvergence pessimism
-                         -0.03    0.12   library hold time
-                                  0.12   data required time
+                  0.05    0.00    0.17 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+                          0.00    0.17   clock reconvergence pessimism
+                         -0.03    0.15   library hold time
+                                  0.15   data required time
 -----------------------------------------------------------------------------
-                                  0.12   data required time
-                                 -0.46   data arrival time
+                                  0.15   data required time
+                                 -0.47   data arrival time
 -----------------------------------------------------------------------------
-                                  0.34   slack (MET)
+                                  0.33   slack (MET)
 
 
 
@@ -128,7 +122,7 @@ Fanout     Cap    Slew   Delay    Time   Description
 global route report_checks -path_delay max
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0/n20_q[2]$_DFFE_PP0P_
+Endpoint: counter_0.n20_q[0]$_DFFE_PN0P_
           (recovery check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: max
@@ -138,42 +132,36 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (propagated)
                          25.00   25.00 ^ input external delay
-     1    0.01    0.00    0.00   25.00 ^ reset_n_i (in)
+     1    0.00    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
-                  0.00    0.00   25.00 ^ input2/A (sg13g2_buf_1)
-     1    0.01    0.05    0.07   25.07 ^ input2/X (sg13g2_buf_1)
+                  0.00    0.00   25.00 ^ input2/A (sg13g2_buf_2)
+     4    0.03    0.08    0.10   25.10 ^ input2/X (sg13g2_buf_2)
                                          net2 (net)
-                  0.05    0.00   25.07 ^ _0_/A (sg13g2_inv_2)
-     1    0.01    0.02    0.04   25.11 v _0_/Y (sg13g2_inv_2)
-                                         n1_o (net)
-                  0.02    0.00   25.11 v counter_0/_12_/A (sg13g2_inv_2)
-     4    0.03    0.07    0.07   25.17 ^ counter_0/_12_/Y (sg13g2_inv_2)
-                                         counter_0/_00_ (net)
-                  0.07    0.00   25.17 ^ counter_0/n20_q[2]$_DFFE_PP0P_/RESET_B (sg13g2_dfrbp_1)
-                                 25.17   data arrival time
+                  0.08    0.00   25.10 ^ counter_0.n20_q[0]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
+                                 25.10   data arrival time
 
                         125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock source latency
      1    0.00    0.00    0.00  125.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00  125.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07  125.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08  125.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00  125.07 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09  125.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
-                                         clknet_1_1__leaf_clock_i (net)
-                  0.05    0.00  125.16 ^ counter_0/n20_q[2]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
+                  0.06    0.00  125.08 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.04    0.09  125.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
+                                         clknet_1_0__leaf_clock_i (net)
+                  0.04    0.00  125.16 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                           0.00  125.16   clock reconvergence pessimism
                          -0.13  125.03   library recovery time
                                 125.03   data required time
 -----------------------------------------------------------------------------
                                 125.03   data required time
-                                -25.17   data arrival time
+                                -25.10   data arrival time
 -----------------------------------------------------------------------------
-                                 99.86   slack (MET)
+                                 99.94   slack (MET)
 
 
-Startpoint: counter_0/n20_q[0]$_DFFE_PP0P_
+Startpoint: counter_0.n20_q[0]$_DFFE_PN0P_
             (rising edge-triggered flip-flop clocked by core_clock)
 Endpoint: counter_value_o[0] (output port clocked by core_clock)
 Path Group: core_clock
@@ -186,19 +174,19 @@ Fanout     Cap    Slew   Delay    Time   Description
      1    0.00    0.00    0.00    0.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00    0.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00    0.07 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09    0.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
+                  0.06    0.00    0.08 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.04    0.09    0.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
                                          clknet_1_0__leaf_clock_i (net)
-                  0.05    0.00    0.16 ^ counter_0/n20_q[0]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-     5    0.02    0.09    0.27    0.43 ^ counter_0/n20_q[0]$_DFFE_PP0P_/Q (sg13g2_dfrbp_1)
+                  0.04    0.00    0.16 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+     5    0.02    0.09    0.26    0.43 ^ counter_0.n20_q[0]$_DFFE_PN0P_/Q (sg13g2_dfrbp_1)
                                          net3 (net)
                   0.09    0.00    0.43 ^ output3/A (sg13g2_buf_1)
-     1    0.00    0.02    0.08    0.51 ^ output3/X (sg13g2_buf_1)
+     1    0.00    0.03    0.09    0.52 ^ output3/X (sg13g2_buf_1)
                                          counter_value_o[0] (net)
-                  0.02    0.00    0.51 ^ counter_value_o[0] (out)
-                                  0.51   data arrival time
+                  0.03    0.00    0.52 ^ counter_value_o[0] (out)
+                                  0.52   data arrival time
 
                         125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock network delay (propagated)
@@ -207,9 +195,9 @@ Fanout     Cap    Slew   Delay    Time   Description
                                 100.00   data required time
 -----------------------------------------------------------------------------
                                 100.00   data required time
-                                 -0.51   data arrival time
+                                 -0.52   data arrival time
 -----------------------------------------------------------------------------
-                                 99.49   slack (MET)
+                                 99.48   slack (MET)
 
 
 
@@ -217,7 +205,7 @@ Fanout     Cap    Slew   Delay    Time   Description
 global route report_checks -unconstrained
 --------------------------------------------------------------------------
 Startpoint: reset_n_i (input port clocked by core_clock)
-Endpoint: counter_0/n20_q[2]$_DFFE_PP0P_
+Endpoint: counter_0.n20_q[0]$_DFFE_PN0P_
           (recovery check against rising-edge clock core_clock)
 Path Group: asynchronous
 Path Type: max
@@ -227,42 +215,36 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock core_clock (rise edge)
                           0.00    0.00   clock network delay (propagated)
                          25.00   25.00 ^ input external delay
-     1    0.01    0.00    0.00   25.00 ^ reset_n_i (in)
+     1    0.00    0.00    0.00   25.00 ^ reset_n_i (in)
                                          reset_n_i (net)
-                  0.00    0.00   25.00 ^ input2/A (sg13g2_buf_1)
-     1    0.01    0.05    0.07   25.07 ^ input2/X (sg13g2_buf_1)
+                  0.00    0.00   25.00 ^ input2/A (sg13g2_buf_2)
+     4    0.03    0.08    0.10   25.10 ^ input2/X (sg13g2_buf_2)
                                          net2 (net)
-                  0.05    0.00   25.07 ^ _0_/A (sg13g2_inv_2)
-     1    0.01    0.02    0.04   25.11 v _0_/Y (sg13g2_inv_2)
-                                         n1_o (net)
-                  0.02    0.00   25.11 v counter_0/_12_/A (sg13g2_inv_2)
-     4    0.03    0.07    0.07   25.17 ^ counter_0/_12_/Y (sg13g2_inv_2)
-                                         counter_0/_00_ (net)
-                  0.07    0.00   25.17 ^ counter_0/n20_q[2]$_DFFE_PP0P_/RESET_B (sg13g2_dfrbp_1)
-                                 25.17   data arrival time
+                  0.08    0.00   25.10 ^ counter_0.n20_q[0]$_DFFE_PN0P_/RESET_B (sg13g2_dfrbp_1)
+                                 25.10   data arrival time
 
                         125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock source latency
      1    0.00    0.00    0.00  125.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00  125.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07  125.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08  125.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00  125.07 ^ clkbuf_1_1__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09  125.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
-                                         clknet_1_1__leaf_clock_i (net)
-                  0.05    0.00  125.16 ^ counter_0/n20_q[2]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
+                  0.06    0.00  125.08 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.04    0.09  125.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
+                                         clknet_1_0__leaf_clock_i (net)
+                  0.04    0.00  125.16 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
                           0.00  125.16   clock reconvergence pessimism
                          -0.13  125.03   library recovery time
                                 125.03   data required time
 -----------------------------------------------------------------------------
                                 125.03   data required time
-                                -25.17   data arrival time
+                                -25.10   data arrival time
 -----------------------------------------------------------------------------
-                                 99.86   slack (MET)
+                                 99.94   slack (MET)
 
 
-Startpoint: counter_0/n20_q[0]$_DFFE_PP0P_
+Startpoint: counter_0.n20_q[0]$_DFFE_PN0P_
             (rising edge-triggered flip-flop clocked by core_clock)
 Endpoint: counter_value_o[0] (output port clocked by core_clock)
 Path Group: core_clock
@@ -275,19 +257,19 @@ Fanout     Cap    Slew   Delay    Time   Description
      1    0.00    0.00    0.00    0.00 ^ clock_i (in)
                                          clock_i (net)
                   0.00    0.00    0.00 ^ clkbuf_0_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+     2    0.01    0.06    0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
                                          clknet_0_clock_i (net)
-                  0.05    0.00    0.07 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
-     2    0.01    0.05    0.09    0.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
+                  0.06    0.00    0.08 ^ clkbuf_1_0__f_clock_i/A (sg13g2_buf_1)
+     2    0.01    0.04    0.09    0.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
                                          clknet_1_0__leaf_clock_i (net)
-                  0.05    0.00    0.16 ^ counter_0/n20_q[0]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-     5    0.02    0.09    0.27    0.43 ^ counter_0/n20_q[0]$_DFFE_PP0P_/Q (sg13g2_dfrbp_1)
+                  0.04    0.00    0.16 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+     5    0.02    0.09    0.26    0.43 ^ counter_0.n20_q[0]$_DFFE_PN0P_/Q (sg13g2_dfrbp_1)
                                          net3 (net)
                   0.09    0.00    0.43 ^ output3/A (sg13g2_buf_1)
-     1    0.00    0.02    0.08    0.51 ^ output3/X (sg13g2_buf_1)
+     1    0.00    0.03    0.09    0.52 ^ output3/X (sg13g2_buf_1)
                                          counter_value_o[0] (net)
-                  0.02    0.00    0.51 ^ counter_value_o[0] (out)
-                                  0.51   data arrival time
+                  0.03    0.00    0.52 ^ counter_value_o[0] (out)
+                                  0.52   data arrival time
 
                         125.00  125.00   clock core_clock (rise edge)
                           0.00  125.00   clock network delay (propagated)
@@ -296,9 +278,9 @@ Fanout     Cap    Slew   Delay    Time   Description
                                 100.00   data required time
 -----------------------------------------------------------------------------
                                 100.00   data required time
-                                 -0.51   data arrival time
+                                 -0.52   data arrival time
 -----------------------------------------------------------------------------
-                                 99.49   slack (MET)
+                                 99.48   slack (MET)
 
 
 
@@ -309,7 +291,7 @@ global route report_check_types -max_slew -max_cap -max_fanout -violators
 ==========================================================================
 global route max_slew_check_slack
 --------------------------------------------------------------------------
-2.4050190448760986
+2.4054949283599854
 
 ==========================================================================
 global route max_slew_check_limit
@@ -319,7 +301,7 @@ global route max_slew_check_limit
 ==========================================================================
 global route max_slew_check_slack_limit
 --------------------------------------------------------------------------
-0.9592
+0.9594
 
 ==========================================================================
 global route max_fanout_check_slack
@@ -339,7 +321,7 @@ global route max_fanout_check_slack_limit
 ==========================================================================
 global route max_capacitance_check_slack
 --------------------------------------------------------------------------
-0.2788034975528717
+0.27870479226112366
 
 ==========================================================================
 global route max_capacitance_check_limit
@@ -349,7 +331,7 @@ global route max_capacitance_check_limit
 ==========================================================================
 global route max_capacitance_check_slack_limit
 --------------------------------------------------------------------------
-0.9293
+0.9290
 
 ==========================================================================
 global route max_slew_violation_count
@@ -379,9 +361,9 @@ hold violation count 0
 ==========================================================================
 global route report_checks -path_delay max reg to reg
 --------------------------------------------------------------------------
-Startpoint: counter_0/n20_q[0]$_DFFE_PP0P_
+Startpoint: counter_0.n20_q[0]$_DFFE_PN0P_
             (rising edge-triggered flip-flop clocked by core_clock)
-Endpoint: counter_0/n20_q[3]$_DFFE_PP0P_
+Endpoint: counter_0.n20_q[2]$_DFFE_PN0P_
           (rising edge-triggered flip-flop clocked by core_clock)
 Path Group: core_clock
 Path Type: max
@@ -391,38 +373,38 @@ Path Type: max
    0.00    0.00   clock core_clock (rise edge)
    0.00    0.00   clock source latency
    0.00    0.00 ^ clock_i (in)
-   0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+   0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
    0.09    0.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
-   0.00    0.16 ^ counter_0/n20_q[0]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-   0.27    0.43 ^ counter_0/n20_q[0]$_DFFE_PP0P_/Q (sg13g2_dfrbp_1)
-   0.13    0.56 v counter_0/_18_/Y (sg13g2_nand4_1)
-   0.12    0.67 v counter_0/_19_/Y (sg13g2_xnor2_1)
-   0.00    0.67 v counter_0/n20_q[3]$_DFFE_PP0P_/D (sg13g2_dfrbp_1)
-           0.67   data arrival time
+   0.00    0.16 ^ counter_0.n20_q[0]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+   0.26    0.43 ^ counter_0.n20_q[0]$_DFFE_PN0P_/Q (sg13g2_dfrbp_1)
+   0.12    0.54 v _14_/Y (sg13g2_nand3_1)
+   0.11    0.65 v _15_/Y (sg13g2_xnor2_1)
+   0.00    0.65 v counter_0.n20_q[2]$_DFFE_PN0P_/D (sg13g2_dfrbp_1)
+           0.65   data arrival time
 
  125.00  125.00   clock core_clock (rise edge)
    0.00  125.00   clock source latency
    0.00  125.00 ^ clock_i (in)
-   0.07  125.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
-   0.09  125.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
-   0.00  125.16 ^ counter_0/n20_q[3]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
+   0.08  125.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+   0.09  125.16 ^ clkbuf_1_0__f_clock_i/X (sg13g2_buf_1)
+   0.00  125.16 ^ counter_0.n20_q[2]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
    0.00  125.16   clock reconvergence pessimism
-  -0.11  125.04   library setup time
-         125.04   data required time
+  -0.12  125.05   library setup time
+         125.05   data required time
 ---------------------------------------------------------
-         125.04   data required time
-          -0.67   data arrival time
+         125.05   data required time
+          -0.65   data arrival time
 ---------------------------------------------------------
-         124.37   slack (MET)
+         124.40   slack (MET)
 
 
 
 ==========================================================================
 global route report_checks -path_delay min reg to reg
 --------------------------------------------------------------------------
-Startpoint: counter_0/n20_q[3]$_DFFE_PP0P_
+Startpoint: counter_0.n20_q[3]$_DFFE_PN0P_
             (rising edge-triggered flip-flop clocked by core_clock)
-Endpoint: counter_0/n20_q[3]$_DFFE_PP0P_
+Endpoint: counter_0.n20_q[3]$_DFFE_PN0P_
           (rising edge-triggered flip-flop clocked by core_clock)
 Path Group: core_clock
 Path Type: min
@@ -432,40 +414,40 @@ Path Type: min
    0.00    0.00   clock core_clock (rise edge)
    0.00    0.00   clock source latency
    0.00    0.00 ^ clock_i (in)
-   0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
-   0.09    0.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
-   0.00    0.16 ^ counter_0/n20_q[3]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-   0.24    0.39 ^ counter_0/n20_q[3]$_DFFE_PP0P_/Q (sg13g2_dfrbp_1)
-   0.07    0.46 v counter_0/_19_/Y (sg13g2_xnor2_1)
-   0.00    0.46 v counter_0/n20_q[3]$_DFFE_PP0P_/D (sg13g2_dfrbp_1)
-           0.46   data arrival time
+   0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+   0.10    0.17 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
+   0.00    0.17 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+   0.23    0.41 ^ counter_0.n20_q[3]$_DFFE_PN0P_/Q (sg13g2_dfrbp_1)
+   0.06    0.47 v _17_/Y (sg13g2_xnor2_1)
+   0.00    0.47 v counter_0.n20_q[3]$_DFFE_PN0P_/D (sg13g2_dfrbp_1)
+           0.47   data arrival time
 
    0.00    0.00   clock core_clock (rise edge)
    0.00    0.00   clock source latency
    0.00    0.00 ^ clock_i (in)
-   0.07    0.07 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
-   0.09    0.16 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
-   0.00    0.16 ^ counter_0/n20_q[3]$_DFFE_PP0P_/CLK (sg13g2_dfrbp_1)
-   0.00    0.16   clock reconvergence pessimism
-  -0.03    0.12   library hold time
-           0.12   data required time
+   0.08    0.08 ^ clkbuf_0_clock_i/X (sg13g2_buf_1)
+   0.10    0.17 ^ clkbuf_1_1__f_clock_i/X (sg13g2_buf_1)
+   0.00    0.17 ^ counter_0.n20_q[3]$_DFFE_PN0P_/CLK (sg13g2_dfrbp_1)
+   0.00    0.17   clock reconvergence pessimism
+  -0.03    0.15   library hold time
+           0.15   data required time
 ---------------------------------------------------------
-           0.12   data required time
-          -0.46   data arrival time
+           0.15   data required time
+          -0.47   data arrival time
 ---------------------------------------------------------
-           0.34   slack (MET)
+           0.33   slack (MET)
 
 
 
 ==========================================================================
 global route critical path target clock latency max path
 --------------------------------------------------------------------------
-0.1564
+0.1639
 
 ==========================================================================
 global route critical path target clock latency min path
 --------------------------------------------------------------------------
-0.1599
+0.1729
 
 ==========================================================================
 global route critical path source clock latency min path
@@ -475,17 +457,17 @@ global route critical path source clock latency min path
 ==========================================================================
 global route critical path delay
 --------------------------------------------------------------------------
-0.5106
+0.5168
 
 ==========================================================================
 global route critical path slack
 --------------------------------------------------------------------------
-99.4894
+99.4832
 
 ==========================================================================
 global route slack div critical path delay
 --------------------------------------------------------------------------
-19484.802193
+19249.845201
 
 ==========================================================================
 global route report_power
@@ -493,11 +475,11 @@ global route report_power
 Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
-Sequential             3.75e-06   3.61e-07   2.15e-09   4.11e-06  74.2%
-Combinational          5.55e-07   2.42e-07   1.99e-09   7.99e-07  14.4%
-Clock                  2.80e-07   3.48e-07   3.31e-10   6.28e-07  11.3%
+Sequential             3.76e-06   3.64e-07   2.15e-09   4.12e-06  74.5%
+Combinational          5.54e-07   2.11e-07   1.81e-09   7.67e-07  13.9%
+Clock                  2.80e-07   3.61e-07   3.31e-10   6.41e-07  11.6%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  4.59e-06   9.51e-07   4.47e-09   5.54e-06 100.0%
-                          82.8%      17.2%       0.1%
+Total                  4.59e-06   9.37e-07   4.29e-09   5.53e-06 100.0%
+                          83.0%      16.9%       0.1%

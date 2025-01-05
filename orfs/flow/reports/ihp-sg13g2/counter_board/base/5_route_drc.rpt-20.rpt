@@ -1,6 +1,0 @@
-violation type: Short
-	srcs: net:VSS net:counter_value_o[0]
-	bbox = (0.8600, 41.4800) - (1.0600, 41.6800) on Layer Metal2
-violation type: Short
-	srcs: net:VSS net:counter_value_o[0]
-	bbox = (0.6800, 41.4800) - (1.0600, 41.6800) on Layer Metal2

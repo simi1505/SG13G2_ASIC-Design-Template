@@ -1,2 +1,0 @@
-295.747200 \counter_4_16
-303.004800 \counter_board
