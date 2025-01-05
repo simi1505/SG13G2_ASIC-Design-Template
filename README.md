@@ -37,6 +37,8 @@ For more detailed information, please refer to Option B in `SG13G2_ASIC-Design-T
 
 If you want to see the area per module / entity of your digital core, you can set `export SYNTH_HIERARCHICAL=1` in `run_all.sh` and open the hierarchy browser in the OpenROAD GUI. If it is disabled, check the box under `Windows/Hierarchy Browser`.
 
+Note that the mixed-signal simulation in Xschem will not work if `SYNTH_HIERARCHICAL=1` is set. Hence, this line must be commented out for simulation.
+
 #### Simulation details:
 
 The VHDL code is simulated with `GHDL` & `GTKWave` (counter_tb.gtkw ) or `Modelsim` (sim.do). The VHDL simulation can be executed with `simulate_vhdl.sh`. The Verilog code is simulated with `verilator` & `iverilog` & `GTKWave` or `Modelsim` (sim_verilog_tb.do or sim_vhdl_tb.do). The Verilog simulation can be executed with `simulate_verilog.sh`. Alternatively, one can use `Surfer` instead of `GTKWave`. Further information can be found in the YouTube video.
