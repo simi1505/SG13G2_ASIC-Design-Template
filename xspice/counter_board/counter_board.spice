@@ -1,7 +1,7 @@
 *SPICE netlist created from verilog structural netlist module counter_board by vlog2Spice (qflow)
 *This file may contain array delimiters, not for use in simulation.
 
-.include /foss/pdks/sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
 
 .subckt counter_board VPWR VGND clock_i counter_value_o[0] counter_value_o[1] counter_value_o[2] counter_value_o[3]
 + enable_i reset_n_i 
