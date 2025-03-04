@@ -56,6 +56,13 @@ export ABC_DRIVER_CELL = sg13g2_buf_4
 export ABC_LOAD_IN_FF = 6.0
 # Set yosys-abc clock period to first "clk_period" value or "-period" value found in sdc file
 export ABC_CLOCK_PERIOD_IN_PS ?= $(shell sed -nE "s/^set clk_period (.+)|.* -period (.+) .*/\1\2/p" $(SDC_FILE) | head -1 | awk '{print $$1*1000}')
+
+# -----------------------------------------------------
+#  Sizing
+# -----------------------------------------------------
+
+export MATCH_CELL_FOOTPRINT = 1
+
 #--------------------------------------------------------
 # Floorplan
 # -------------------------------------------------------
@@ -79,7 +86,6 @@ export CORE_MARGIN ?= 16.5
 export TAPCELL_TCL ?= $(PLATFORM_DIR)/tapcell.tcl
 
 export MACRO_PLACE_HALO ?= 40 40
-export MACRO_PLACE_CHANNEL ?= 80 80
 
 #---------------------------------------------------------
 # Place
@@ -118,8 +124,8 @@ export RCX_RULES = $(PLATFORM_DIR)/IHP_rcx_patterns.rules
 
 # IR drop estimation supply net name to be analyzed and supply voltage variable
 # For multiple nets: PWR_NETS_VOLTAGES  = "VDD1 1.8 VDD2 1.2"
-export PWR_NETS_VOLTAGES  ?= "VDD 1.2"
-export GND_NETS_VOLTAGES  ?= "VSS 0.0"
+export PWR_NETS_VOLTAGES  ?= VDD 1.2
+export GND_NETS_VOLTAGES  ?= VSS 0.0
 export IR_DROP_LAYER ?= Metal1
 
 # DRC Check

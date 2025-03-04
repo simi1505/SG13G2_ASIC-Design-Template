@@ -10,8 +10,8 @@ export PLACE_DENSITY ?= 0.88
 #export CORE_UTILIZATION = 60
 export TNS_END_PERCENT = 100
 
-export DIE_AREA    = 0 0 80 80
-export CORE_AREA   = 10 10 70 70
+export DIE_AREA    = 0 0 100 100
+export CORE_AREA   = 20 20 80 80
 
 # Suppress errors due to empty cells
 export GDS_ALLOW_EMPTY=$(DESIGN_NAME)_DEF_FILL

@@ -28,7 +28,7 @@ cd "$SCRIPT_DIR"
 
 # Run "run_orfs.sh"
 cd "$ORFS"
-# export SYNTH_HIERARCHICAL=1 # do not flatten top-level, not working with Xschem simulation!
+# export SYNTH_HIERARCHICAL=1 # do not flatten top-level (for ORFS analysis), not working with Xschem simulation!
 ./run_orfs.sh
 cd "$SCRIPT_DIR"
 

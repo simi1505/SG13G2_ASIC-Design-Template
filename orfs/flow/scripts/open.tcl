@@ -5,18 +5,18 @@ source $::env(SCRIPTS_DIR)/read_liberty.tcl
 # Read def
 if {[env_var_exists_and_non_empty DEF_FILE]} {
     # Read lef
-    read_lef $::env(TECH_LEF)
-    read_lef $::env(SC_LEF)
+    log_cmd read_lef $::env(TECH_LEF)
+    log_cmd read_lef $::env(SC_LEF)
     if {[env_var_exists_and_non_empty ADDITIONAL_LEFS]} {
       foreach lef $::env(ADDITIONAL_LEFS) {
-        read_lef $lef
+        log_cmd read_lef $lef
       }
     }
     set input_file $::env(DEF_FILE)
-    read_def $input_file
+    log_cmd read_def $input_file
 } else {
     set input_file $::env(ODB_FILE)
-    read_db $input_file
+    log_cmd read_db $input_file
 }
 
 proc read_timing {input_file} {
@@ -27,7 +27,7 @@ proc read_timing {input_file} {
   if {$sdc_file == ""} {
     set sdc_file $::env(SDC_FILE)
   }
-  read_sdc $sdc_file
+  log_cmd read_sdc $sdc_file
   if [file exists $::env(PLATFORM_DIR)/derate.tcl] {
     source $::env(PLATFORM_DIR)/derate.tcl
   }
@@ -57,15 +57,18 @@ proc read_timing {input_file} {
   puts "OK"
 }
 
+if {[ord::openroad_gui_compiled]} {
+  set db_basename [file rootname [file tail $input_file]]
+  gui::set_title "OpenROAD - $::env(PLATFORM)/$::env(DESIGN_NICKNAME)/$::env(FLOW_VARIANT) - ${db_basename}"
+}
+
 if {[env_var_equals GUI_TIMING 1]} {
   puts "GUI_TIMING=1 reading timing, takes a little while for large designs..."
   read_timing $input_file
+  if {[gui::enabled]} {
+    gui::select_chart "Endpoint Slack"
+    log_cmd gui::update_timing_report
+  }
 }
 
 fast_route
-
-if {[env_var_equals GUI_SHOW 1]} {
-  # Show the GUI when it is ready; it is unresponsive(with modal requesters
-  # saying it is unresponsive) until everything is loaded
-  gui::unminimize
-}
