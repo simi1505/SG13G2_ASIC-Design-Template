@@ -19,7 +19,7 @@ If you want to use other OpenROAD-compatible PDKs, just add the corresponding fi
 
 #### Step-by-step introduction:
 
-1. Download this repo and copy it into the `foss/designs` folder of your IIC-OSIC-Tools environment.
+1. Clone or download this repo and copy it into the `foss/designs` folder of your IIC-OSIC-Tools environment.
 2. Copy the `.designinit` file from `foss/designs/SG13G2_ASIC-Design-Template` to `foss/designs` and check the path for Xschem. This will change the used PDK to SG13G2 by IHP.
    **Update:** The path to Xschem is now set with the `xschemrc` file. Just start Xschem within the `xschem` folder and everything will be set up.
 3. Rename the repo as you wish.
