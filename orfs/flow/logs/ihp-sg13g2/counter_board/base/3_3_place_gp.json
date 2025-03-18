@@ -1,6 +1,8 @@
 {
 	"globalplace__timing__setup__tns": 0,
+	"globalplace__timing__hold__tns": 0,
 	"globalplace__timing__setup__ws": 99.6586,
+	"globalplace__timing__hold__ws": 0.302526,
 	"globalplace__power__internal__total": 4.01055e-06,
 	"globalplace__power__switching__total": 3.63069e-07,
 	"globalplace__power__leakage__total": 3.22949e-09,
