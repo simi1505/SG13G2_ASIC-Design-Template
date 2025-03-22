@@ -12,20 +12,45 @@ set -e -x
 
 cd $(dirname "$0")
 
+# Initialize variables
+sim_flag=false
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -sim)
+      sim_flag=true
+      shift # move to next argument
+      ;;
+    -h|--help)
+      echo "Usage: $0 [-sim]: If the sim flag is set, no layout is produced."
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Use -h for help."
+      exit 1
+      ;;
+  esac
+done
+
 # Run "env.sh" to initialize the paths to OpenROAD, OpenSTA, Yosys and kLayout
 source env.sh
 
 # Go into the "flow" folder
 cd flow
 
-# Remove existing files
-make nuke
+# Now handle what happens if -sim was passed
+if [ "$sim_flag" = true ]; then
+  # Run synthesis with Yosys
+  make synth
+else
+  # Run ORFS (set the correct design in the Makefile)
+  make
 
-# Run ORFS (set the correct design in the Makefile)
-make
-
-# Display layout
-make gui_final
+  # Display layout
+  make gui_final
+fi
 
 # Finish
 echo "------ ORFS was run successfully! ------"
