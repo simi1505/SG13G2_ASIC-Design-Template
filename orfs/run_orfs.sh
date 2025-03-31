@@ -54,6 +54,9 @@ if [ "$sim_flag" = true ]; then
   # Run synthesis with Yosys
   make synth
 else
+  # do not flatten top-level (for ORFS analysis), not working with Xschem simulation!
+  export SYNTH_HIERARCHICAL=1
+  
   # Run ORFS
   make
   

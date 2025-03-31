@@ -32,7 +32,6 @@ cd "$ORFS"
 ./run_orfs.sh --sim "$name"
 
 # Layout
-# export SYNTH_HIERARCHICAL=1 # do not flatten top-level (for ORFS analysis), not working with Xschem simulation!
 # ./run_orfs.sh --layout "$name"
 cd "$SCRIPT_DIR"
 
