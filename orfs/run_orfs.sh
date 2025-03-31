@@ -57,6 +57,14 @@ else
   # Run ORFS
   make
   
+  # Report Area per Entity
+  # export ODB_PATH=./results/ihp-sg13g2/"$name"/base/6_final.odb
+  # openroad -no_splash -exit report_area.tcl
+
+  # Report Power per Entity
+  # export FINAL_PATH=./ToDo
+  # openroad -no_splash -exit report_power.tcl
+  
   # Display layout
   make gui_final
 fi
