@@ -6,7 +6,7 @@
 # Uncomment or add the design to run
 # ==============================================================================
 
-# Default design
+# Default design (exported in run_orfs.sh)
 DESIGN_CONFIG ?= ./designs/ihp-sg13g2/counter_board/config.mk
 
 # Include design and platform configuration before setting default options
