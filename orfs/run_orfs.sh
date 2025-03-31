@@ -18,9 +18,15 @@ sim_flag=false
 # Parse arguments
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    -sim)
+    -s|--sim)
       sim_flag=true
-      shift # move to next argument
+      name=$2
+      shift 2 # move to next argument
+      ;;
+    -l|--layout)
+      sim_flag=false
+      name=$2
+      shift 2 # move to next argument
       ;;
     -h|--help)
       echo "Usage: $0 [-sim]: If the sim flag is set, no layout is produced."
@@ -40,14 +46,17 @@ source env.sh
 # Go into the "flow" folder
 cd flow
 
+# Export path to config.mk
+export DESIGN_CONFIG=./designs/ihp-sg13g2/"$name"/config.mk
+
 # Now handle what happens if -sim was passed
 if [ "$sim_flag" = true ]; then
   # Run synthesis with Yosys
   make synth
 else
-  # Run ORFS (set the correct design in the Makefile)
+  # Run ORFS
   make
-
+  
   # Display layout
   make gui_final
 fi

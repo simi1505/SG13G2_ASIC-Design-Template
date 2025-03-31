@@ -29,11 +29,11 @@ cd "$SCRIPT_DIR"
 # Run "run_orfs.sh"
 cd "$ORFS"
 # Simulation Only
-./run_orfs.sh -sim
+./run_orfs.sh --sim "$name"
 
 # Layout
 # export SYNTH_HIERARCHICAL=1 # do not flatten top-level (for ORFS analysis), not working with Xschem simulation!
-# ./run_orfs.sh
+# ./run_orfs.sh --layout "$name"
 cd "$SCRIPT_DIR"
 
 # Run "verilog2xspice.sh"

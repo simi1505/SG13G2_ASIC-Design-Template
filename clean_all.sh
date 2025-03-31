@@ -10,6 +10,9 @@ set -e -x
 
 cd $(dirname "$0")
 
+# counter_board
+name=$1
+
 VERILOG=${VERILOG:-verilog/rtl}
 ORFS=${ORFS:-orfs}
 XSPICE=${XSPICE:-xspice}
@@ -24,7 +27,10 @@ cd "$SCRIPT_DIR"
 
 # Clean ORFS
 cd "$ORFS"/flow
-make nuke
+rm -rf ./logs/ihp-sg13g2/"$name"
+rm -rf ./objects/ihp-sg13g2/"$name"
+rm -rf ./reports/ihp-sg13g2/"$name"
+rm -rf ./results/ihp-sg13g2/"$name"
 cd "$SCRIPT_DIR"
 
 # Clean Xspice (remove all sub-directories of the xspice folder)
