@@ -1,13 +1,13 @@
 # =====================================================
 # Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
-# Author: Moritz Tockner, Simon Dorrer
-# Last Modified: 30.03.2025
+# Author: Jakob Winkler, Simon Dorrer
+# Last Modified: 02.04.2025
 # Description: This .tcl file loads the .odb file and reports the area per entities.
 # =====================================================
 
-set odb_path $::env(ODB_PATH)
+set odb_file $::env(ODB_FILE)
 set db [odb::dbDatabase_create] 
-odb::read_db $db $odb_path 
+odb::read_db $db $odb_file
 
 set chip [odb::dbDatabase_getChip $db] 
 set block [odb::dbChip_getBlock $chip] 
