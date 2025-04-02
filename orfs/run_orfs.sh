@@ -3,7 +3,7 @@
 # =====================================================
 # Master's Thesis: Threshold-Based Sampling ASIC with FOSS tools.
 # Author: Simon Dorrer
-# Last Modified: 05.12.2024
+# Last Modified: 02.04.2025
 # Description: This .sh file takes a Verilog file and runs the OpenROAD flow-scripts (ORFS) for the IHP SG13G2 PDK with it.
 # In the end, the digital layout is displayed with OpenROAD.
 # =====================================================
@@ -29,7 +29,8 @@ while [[ $# -gt 0 ]]; do
       shift 2 # move to next argument
       ;;
     -h|--help)
-      echo "Usage: $0 [-sim]: If the sim flag is set, no layout is produced."
+      echo "Usage: $0 [-s|--sim]: If the sim flag is set, no layout is produced."
+      echo "Usage: $0 [-l|--layout]: If the layout flag is set, the layout is produced."
       exit 0
       ;;
     *)
@@ -61,12 +62,14 @@ else
   make
   
   # Report Area per Entity
-  # export ODB_PATH=./results/ihp-sg13g2/"$name"/base/6_final.odb
-  # openroad -no_splash -exit report_area.tcl
+  export RESULTS_DIR=$FLOW_HOME/results/ihp-sg13g2/"$name"/base
+  export ODB_FILE=$RESULTS_DIR/6_final.odb
+  $OPENROAD_EXE -no_splash -exit report_area.tcl
 
   # Report Power per Entity
-  # export FINAL_PATH=./ToDo
-  # openroad -no_splash -exit report_power.tcl
+  export PLATFORM_DIR=$FLOW_HOME/platforms/ihp-sg13g2
+  export PROJECT_NAME="$name"
+  $OPENROAD_EXE -no_splash -exit report_power.tcl
   
   # Display layout
   make gui_final
