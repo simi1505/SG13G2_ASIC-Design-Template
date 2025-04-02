@@ -27,10 +27,10 @@ cd "$SCRIPT_DIR"
 
 # Clean ORFS
 cd "$ORFS"/flow
-rm -rf ./logs/ihp-sg13g2/"$name"
-rm -rf ./objects/ihp-sg13g2/"$name"
-rm -rf ./reports/ihp-sg13g2/"$name"
-rm -rf ./results/ihp-sg13g2/"$name"
+rm -rf ./logs/ihp-sg13g2/"$name"_board
+rm -rf ./objects/ihp-sg13g2/"$name"_board
+rm -rf ./reports/ihp-sg13g2/"$name"_board
+rm -rf ./results/ihp-sg13g2/"$name"_board
 cd "$SCRIPT_DIR"
 
 # Clean Xspice (remove all sub-directories of the xspice folder)
