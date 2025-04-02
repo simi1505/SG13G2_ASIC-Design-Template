@@ -34,9 +34,9 @@ rm -rf ./results/ihp-sg13g2/"$name"
 cd "$SCRIPT_DIR"
 
 # Clean Xspice (remove all sub-directories of the xspice folder)
-cd "$XSPICE"
-rm -r -- */
-cd "$SCRIPT_DIR"
+# cd "$XSPICE"
+# rm -r -- */
+# cd "$SCRIPT_DIR"
 
 # Clean Ngspice simulation data for Python
 cd "$PYTHON"
