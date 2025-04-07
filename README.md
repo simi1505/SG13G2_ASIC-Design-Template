@@ -54,7 +54,7 @@ The VHDL code is simulated with `GHDL` & `GTKWave` (counter_tb.gtkw ) or `Models
 
 The data can not only be shown within Xschem but, of course, exported as a .txt file, read with Python and the function `loadngspicecol` in `ngspice2python.py`, and finally plotted with Matplotlib. If you navigate into `foss/designs/SG13G2_ASIC-Design-Template/python/plot_simulations` and execute `python3 plot_counter_board_tb_tran.py`, the plot will pop up.
 
-Alternatively, one can post-process the data (e.g., down-sample or cut out data) and export a .csv file. This file can then be used with `pgfplots` for professional vector graphics for a paper or thesis.
+Alternatively, one can post-process the data (e.g. down-sample or cut out data) and export a .csv file. This file can then be used with `pgfplots` for professional vector graphics for a paper or thesis.
 
 <img src="python\plot_simulations\figures\counter_board_simulation.svg" width="1200"/>
 
