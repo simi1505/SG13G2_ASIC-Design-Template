@@ -15,7 +15,7 @@ The recommended folder structure makes it easy to automate with shell scripts. V
 
 <img src="doc\scripts_overview.svg" width="400"/>
 
-**Figure 1**: Overview of the script structure in the template GitHub repository
+**Figure 1**: Overview of the script structure in the template GitHub repository.
 
 I have also made a short video on how to use this repo: https://www.youtube.com/watch?v=UrUOg9s7gsM
 
@@ -62,4 +62,4 @@ Alternatively, one can post-process the data (e.g. down-sample or cut out data) 
 
 <img src="python\plot_simulations\figures\counter_board_simulation.svg" width="1200"/>
 
-**Figure 2**: Ngspice data plotted with Python
+**Figure 2**: Ngspice data plotted with Python.
