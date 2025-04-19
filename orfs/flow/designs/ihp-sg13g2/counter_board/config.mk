@@ -1,8 +1,9 @@
 export DESIGN_NAME = counter_board
 export PLATFORM    = ihp-sg13g2
 
-export VERILOG_FILES = $(FLOW_HOME)/../../verilog/rtl/$(DESIGN_NAME).v
-export SDC_FILE      = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
+export VERILOG_FILES  = $(FLOW_HOME)/../../verilog/rtl/$(DESIGN_NAME).v
+export SDC_FILE       = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
+export IO_CONSTRAINTS = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/io.tcl
 
 export USE_FILL = 1
 

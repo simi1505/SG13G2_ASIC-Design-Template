@@ -1,6 +1,6 @@
 current_design counter_board
 
-set clk_name  core_clock
+set clk_name      clock_i
 set clk_port_name clock_i
 set clk_period 125
 set clk_io_pct 0.2
