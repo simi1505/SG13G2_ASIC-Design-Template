@@ -63,6 +63,11 @@ if [ "$sim_flag" = true ]; then
   cd "$XSPICE"
   ./verilog2xspice.sh "$name"_board
   cd "$SCRIPT_DIR"
+  
+  # Run "yosys_stats.sh"
+  cd "$VERILOG"
+  ./yosys_stats.sh "$name"
+  cd "$SCRIPT_DIR"
 else
   # Layout
   cd "$ORFS"
