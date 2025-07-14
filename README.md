@@ -64,9 +64,7 @@ Alternatively, one can post-process the data (e.g. down-sample or cut out data) 
 
 **Figure 2**: Ngspice data plotted with Python.
 
-
-
-**Cite this work:**
+## **Cite this work**
 
 ```
 @online{Dorrer_2025_ASIC_Template,
