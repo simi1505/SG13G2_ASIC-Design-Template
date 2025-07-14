@@ -63,3 +63,15 @@ Alternatively, one can post-process the data (e.g. down-sample or cut out data) 
 <img src="python\plot_simulations\figures\counter_board_simulation.svg" width="1200"/>
 
 **Figure 2**: Ngspice data plotted with Python.
+
+
+
+**Cite this work:**
+
+```
+@online{Dorrer_2025_ASIC_Template,
+	author={Simon Dorrer},
+	title={{A template GitHub repository for analog mixed-signal ASIC design with the SG13G2 PDK}},
+	year={2025},
+	url={https://github.com/simi1505/SG13G2_ASIC-Design-Template}}
+```
