@@ -82,6 +82,7 @@ if [ -z "$name" ]; then
 fi
 
 # Initialize variables
+suffix="board"
 VERILOG=${VERILOG:-verilog/rtl}
 ORFS=${ORFS:-orfs}
 XSPICE=${XSPICE:-xspice}
@@ -100,12 +101,12 @@ fi
 if [ "$sim_flag" = true ]; then
   # Run "run_orfs.sh" - Simulation Only
   cd "$ORFS"
-  ./run_orfs.sh --sim "$name"_board
+  ./run_orfs.sh --sim "$name"_"$suffix"
   cd "$SCRIPT_DIR"
   
   # Run "verilog2xspice.sh"
   cd "$XSPICE"
-  ./verilog2xspice.sh "$name"_board
+  ./verilog2xspice.sh "$name"_"$suffix"
   cd "$SCRIPT_DIR"
   
   # Run "yosys_stats.sh"
@@ -115,7 +116,7 @@ if [ "$sim_flag" = true ]; then
 else
   # Layout
   cd "$ORFS"
-  ./run_orfs.sh --layout "$name"_board
+  ./run_orfs.sh --layout "$name"_"$suffix"
   cd "$SCRIPT_DIR"
 fi
 
