@@ -17,7 +17,7 @@ The recommended folder structure makes it easy to automate with shell scripts. V
 
 **Figure 1**: Overview of the script structure in the template GitHub repository.
 
-I have also made a short video on how to use this repo: https://www.youtube.com/watch?v=UrUOg9s7gsM
+I have also made a short video on how to use this repo: https://www.youtube.com/watch?v=UrUOg9s7gsM (Note that the scripts have been updated since then. However, the basic functionalities are the same.)
 
 If you want to use other OpenROAD-compatible PDKs, just add the corresponding files to the `orfs/flow/platforms` folder. These files can be found at https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts.
 
@@ -35,7 +35,7 @@ If you want to use other OpenROAD-compatible PDKs, just add the corresponding fi
 7. Rename the repo as you wish.
 8. Add your VHDL code to the `vhdl` folder. It is advised that the same folder structure with `rtl` and `sim` is used.
 9. Add your `Xschem` files and testbenches to the `xschem` folder
-10. Adapt VHDL paths in `vhdl2verilog.sh` in the `verilog` folder. If the design is already done in Verilog, this step can be skipped. Do not forget to also comment out this step in `run_all.sh`.
+10. Adapt VHDL paths in `vhdl2verilog.sh` in the `verilog` folder. If the design is already done in Verilog, this step can be skipped. By default the script works with VHDL files. For Verilog files, please use the `--verilog` flag and the VHDL to Verilog conversion part is skipped.
 11. Add config files to `orfs/flow/designs/ihp-sg13g2`. It is a good idea to copy an existing folder (e.g. `counter_board`) and adapt these files. Do not forget to set the path to the Verilog file in `config.mk` and set up the `constraint.sdc` and `autotuner.json`.
 12. Double-check the paths in the .sh files.
 13. In the `Xschem` testbench, include the generated `.xspice` file with an absolute path, otherwise, ngspice will not find the file. For example, `.include /foss/designs/SG13G2_ASIC-Design-Template/xspice/counter_board/counter_board.xspice`
