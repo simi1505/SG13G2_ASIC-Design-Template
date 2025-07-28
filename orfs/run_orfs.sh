@@ -69,14 +69,14 @@ else
   make
   
   # Report Area per Entity
-  export RESULTS_DIR=$FLOW_HOME/results/ihp-sg13g2/"$name"/base
-  export ODB_FILE=$RESULTS_DIR/6_final.odb
-  $OPENROAD_EXE -no_splash -exit report_area.tcl
+  # export RESULTS_DIR=$FLOW_HOME/results/ihp-sg13g2/"$name"/base
+  # export ODB_FILE=$RESULTS_DIR/6_final.odb
+  # $OPENROAD_EXE -no_splash -exit report_area.tcl
 
   # Report Power per Entity
-  export PLATFORM_DIR=$FLOW_HOME/platforms/ihp-sg13g2
-  export PROJECT_NAME="$name"
-  $OPENROAD_EXE -no_splash -exit report_power.tcl
+  # export PLATFORM_DIR=$FLOW_HOME/platforms/ihp-sg13g2
+  # export PROJECT_NAME="$name"
+  # $OPENROAD_EXE -no_splash -exit report_power.tcl
   
   # Display layout
   make gui_final
