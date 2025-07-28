@@ -14,6 +14,14 @@ cd $(dirname "$0")
 # Parse arguments
 sim_flag=false
 
+# Check if no arguments were passed
+if [ $# -eq 0 ]; then
+  echo "No arguments provided."
+  echo "Use -h for help."
+  exit 1
+fi
+
+# Check passed arguments
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -s|--sim)
