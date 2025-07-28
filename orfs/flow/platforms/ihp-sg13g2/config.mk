@@ -6,21 +6,28 @@ export PROCESS = ihp-sg13g2
 # ----------------------------------------------------
 # Add IO related files when a TCL script is assigned to 'FOOTPRINT_TCL'.
 # This variable is used to pass IO information.
-export LOAD_ADDITIONAL_FILES ?= yes
-ifdef FOOTPRINT_TCL
-ifdef LOAD_ADDITIONAL_FILES
-  export ADDITIONAL_LEFS += $(PLATFORM_DIR)/lef/sg13g2_io.lef \
-                            $(PLATFORM_DIR)/lef/bondpad_70x70.lef
-  export ADDITIONAL_LIBS += $(PLATFORM_DIR)/lib/sg13g2_io_typ_1p2V_3p3V_25C.lib
-  export ADDITIONAL_GDS += $(PLATFORM_DIR)/gds/sg13g2_io.gds \
-                           $(PLATFORM_DIR)/gds/bondpad_70x70.gds
-endif
+export LOAD_ADDITIONAL_FILES ?= 1
+ifneq ($(FOOTPRINT_TCL),)
+  ifeq ($(LOAD_ADDITIONAL_FILES),1)
+    export ADDITIONAL_LEFS += $(PLATFORM_DIR)/lef/sg13g2_io.lef \
+                              $(PLATFORM_DIR)/lef/bondpad_70x70.lef
+    export ADDITIONAL_SLOW_LIBS += $(PLATFORM_DIR)/lib/sg13g2_io_slow_1p08V_3p0V_125C.lib
+    export ADDITIONAL_FAST_LIBS += $(PLATFORM_DIR)/lib/sg13g2_io_fast_1p32V_3p6V_m40C.lib
+    export ADDITIONAL_TYP_LIBS += $(PLATFORM_DIR)/lib/sg13g2_io_typ_1p2V_3p3V_25C.lib
+    export ADDITIONAL_GDS += $(PLATFORM_DIR)/gds/sg13g2_io.gds \
+                             $(PLATFORM_DIR)/gds/bondpad_70x70.gds
+  endif
 endif
 export TECH_LEF ?= $(PLATFORM_DIR)/lef/sg13g2_tech.lef
 export SC_LEF ?= $(PLATFORM_DIR)/lef/sg13g2_stdcell.lef
 
-export LIB_FILES ?= $(PLATFORM_DIR)/lib/sg13g2_stdcell_typ_1p20V_25C.lib \
-                    $(ADDITIONAL_LIBS)
+export SLOW_LIB_FILES ?= $(PLATFORM_DIR)/lib/sg13g2_stdcell_slow_1p08V_125C.lib \
+                         $(ADDITIONAL_SLOW_LIBS)
+export FAST_LIB_FILES ?= $(PLATFORM_DIR)/lib/sg13g2_stdcell_fast_1p32V_m40C.lib \
+                         $(ADDITIONAL_FAST_LIBS)
+export TYP_LIB_FILES ?= $(PLATFORM_DIR)/lib/sg13g2_stdcell_typ_1p20V_25C.lib \
+                        $(ADDITIONAL_TYP_LIBS)
+export LIB_FILES ?= $(TYP_LIB_FILES)
 export GDS_FILES ?= $(PLATFORM_DIR)/gds/sg13g2_stdcell.gds \
                     $(ADDITIONAL_GDS)
 
@@ -57,8 +64,12 @@ export CLKGATE_MAP_FILE = $(PLATFORM_DIR)/cells_clkgate.v
 # Define ABC driver and load
 export ABC_DRIVER_CELL = sg13g2_buf_4
 export ABC_LOAD_IN_FF = 6.0
-# Set yosys-abc clock period to first "clk_period" value or "-period" value found in sdc file
-export ABC_CLOCK_PERIOD_IN_PS ?= $(shell sed -nE "s/^set clk_period (.+)|.* -period (.+) .*/\1\2/p" $(SDC_FILE) | head -1 | awk '{print $$1*1000}')
+ifeq ($(origin ABC_CLOCK_PERIOD_IN_PS), undefined)
+  ifneq ($(wildcard $(SDC_FILE)),)
+    # Set yosys-abc clock period to first "clk_period" value or "-period" value found in sdc file
+    export ABC_CLOCK_PERIOD_IN_PS ?= $(shell sed -nE "s/^set clk_period (.+)|.* -period (.+) .*/\1\2/p" $(SDC_FILE) | head -1 | awk '{print $$1*1000}')
+  endif
+endif
 
 # -----------------------------------------------------
 #  Sizing
@@ -118,7 +129,6 @@ export FILL_CONFIG = $(PLATFORM_DIR)/fill.json
 #export TEMPLATE_PGA_CFG ?= $(PLATFORM_DIR)/template_pga.cfg
 
 # OpenRCX extRules
-# export RCX_RULES = $(PLATFORM_DIR)/rcx_patterns.rules
 export RCX_RULES = $(PLATFORM_DIR)/IHP_rcx_patterns.rules
 
 # ---------------------------------------------------------
@@ -138,5 +148,10 @@ export KLAYOUT_DRC_FILE ?= $(PLATFORM_DIR)/drc/sg13g2_minimal.lydrc
 export CDL_FILE ?= $(PLATFORM_DIR)/cdl/sg13g2_stdcell.cdl
 #export KLAYOUT_LVS_FILE = $(PLATFORM_DIR)/lvs/$(PLATFORM).lylvs
 
-#Temporary: skip post-DRT repair antennas
-export SKIP_ANTENNA_REPAIR_POST_DRT = 1
+# ---------------------------------------------------------
+#  Final
+# ---------------------------------------------------------
+
+# SRAM macros have empty placeholder cells included. Just ignore them to not
+# thrown an error.
+export GDS_ALLOW_EMPTY = RM_IHPSG13_1P_BITKIT_16x2_(CORNER|EDGE_TB|LE_con_corner|LE_con_edge_lr|LE_con_tap_lr|POWER_ramtap|TAP|TAP_LR)

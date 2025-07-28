@@ -8,10 +8,10 @@ A_14_ [counter_value_o_1_ counter_value_o_0_ enable_i] _05_ d_lut_sg13g2_nand3_1
 A_15_ [counter_value_o_2_ _05_] _02_ d_lut_sg13g2_xnor2_1
 A_16_ [counter_value_o_1_ counter_value_o_0_ counter_value_o_2_ enable_i] _06_ d_lut_sg13g2_nand4_1
 A_17_ [counter_value_o_3_ _06_] _03_ d_lut_sg13g2_xnor2_1
-A\counter_0.n20_q_0_$_DFFE_PN0P_ _00_ clock_i NULL ~reset_n_i counter_value_o_0_ _10_ ddflop
-A\counter_0.n20_q_1_$_DFFE_PN0P_ _01_ clock_i NULL ~reset_n_i counter_value_o_1_ _09_ ddflop
-A\counter_0.n20_q_2_$_DFFE_PN0P_ _02_ clock_i NULL ~reset_n_i counter_value_o_2_ _08_ ddflop
-A\counter_0.n20_q_3_$_DFFE_PN0P_ _03_ clock_i NULL ~reset_n_i counter_value_o_3_ _07_ ddflop
+A\counter_0.n20_0_$_DFFE_PN0P_ _00_ clock_i NULL ~reset_n_i counter_value_o_0_ _10_ ddflop
+A\counter_0.n20_1_$_DFFE_PN0P_ _01_ clock_i NULL ~reset_n_i counter_value_o_1_ _09_ ddflop
+A\counter_0.n20_2_$_DFFE_PN0P_ _02_ clock_i NULL ~reset_n_i counter_value_o_2_ _08_ ddflop
+A\counter_0.n20_3_$_DFFE_PN0P_ _03_ clock_i NULL ~reset_n_i counter_value_o_3_ _07_ ddflop
 
 .model todig_1v5 adc_bridge(in_high=1.0 in_low=0.5 rise_delay=500p fall_delay=500p)
 .model toana_1v5 dac_bridge(out_high=1.5 out_low=0)

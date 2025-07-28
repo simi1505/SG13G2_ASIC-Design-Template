@@ -95,6 +95,7 @@ CORE_UTILIZATION:
   stages:
     - floorplan
   tunable: 1
+  type: float
 CORE_AREA:
   description: >
     The core area specified as a list of lower-left and upper-right corners in
@@ -146,6 +147,9 @@ LIB_FILES:
     A Liberty file of the standard cell library with PVT characterization,
     input and output characteristics, timing and power definitions for each
     cell.
+PLATFORM_TCL:
+  description: |
+    Specifies a Tcl script with commands to run before loading design.
 DONT_USE_CELLS:
   description: |
     Dont use cells eases pin access in detailed routing.
@@ -169,6 +173,13 @@ SYNTH_MEMORY_MAX_BITS:
   default: 4096
   stages:
     - synth
+SYNTH_HDL_FRONTEND:
+  description: >
+    Select an alternative language frontend to ingest the design. Available option
+    is "slang". If the variable is empty, design is read with the Yosys read_verilog
+    command.
+  stages:
+    - synth
 SYNTH_BLACKBOXES:
   description: >
     List of cells treated as a black box by Yosys. With Bazel, this can be used
@@ -181,6 +192,12 @@ SYNTH_NETLIST_FILES:
     contains duplicate modules, which can happen when using hierarchical
     synthesis on indvidual netlist files and combining here,
     subsequent modules are silently ignored and only the first module is used.
+  stages:
+    - synth
+SYNTH_CANONICALIZE_TCL:
+  description: >
+    Specifies a Tcl script with commands to run as part of the synth
+    canonicalize step.
   stages:
     - synth
 LATCH_MAP_FILE:
@@ -204,12 +221,23 @@ TIEHI_CELL_AND_PORT:
     Netlist.
   stages:
     - synth
-    - place
+    - floorplan
 TIELO_CELL_AND_PORT:
   description: |
     Tie low cells used in Yosys synthesis to replace a logical 0 in the Netlist.
   stages:
     - synth
+    - floorplan
+TIE_SEPARATION:
+  description: |
+    Distance separating tie high/low instances from the load.
+  stages:
+    - floorplan
+  default: 0
+EARLY_SIZING_CAP_RATIO:
+  description: |
+    Ratio between the input pin capacitance and the output pin load during initial gate sizing.
+  stages:
     - place
 MIN_BUF_CELL_AND_PORTS:
   description: |
@@ -240,6 +268,7 @@ SYNTH_MINIMUM_KEEP_SIZE:
     platform's standard cell library. The default value is platform specific.
   stages:
     - synth
+  default: 0
 SYNTH_WRAPPED_OPERATORS:
   description: >
     Synthesize multiple architectural options for each arithmetic operator in the
@@ -247,6 +276,13 @@ SYNTH_WRAPPED_OPERATORS:
     the flow.
   stages:
     - synth
+SWAP_ARITH_OPERATORS:
+  description: >
+    Improve timing QoR by swapping ALU and MULT arithmetic operators.
+  stages:
+    - synth
+    - floorplan
+    - place
 FLOORPLAN_DEF:
   description: |
     Use the DEF file to initialize floorplan.
@@ -317,17 +353,15 @@ IO_CONSTRAINTS:
     - place
 IO_PLACER_H:
   description: >
-    The metal layer on which to place the I/O pins horizontally (top and bottom
+    A list of metal layers on which the I/O pins are placed horizontally (top and bottom
     of the die).
   stages:
-    - floorplan
     - place
 IO_PLACER_V:
   description: >
-    The metal layer on which to place the I/O pins vertically (sides of the
+    A list of metal layers on which the I/O pins are placed vertically (sides of the
     die).
   stages:
-    - floorplan
     - place
 GUI_TIMING:
   description: >
@@ -352,6 +386,7 @@ CELL_PAD_IN_SITES_GLOBAL_PLACEMENT:
     - place
     - floorplan
   default: 0
+  type: int
   tunable: 1
 CELL_PAD_IN_SITES_DETAIL_PLACEMENT:
   description: >
@@ -362,18 +397,24 @@ CELL_PAD_IN_SITES_DETAIL_PLACEMENT:
     - cts
     - grt
   default: 0
+  type: int
   tunable: 1
 PLACE_PINS_ARGS:
   description: |
     Arguments to place_pins
   stages:
     - place
-    - floorplan
-  default: ""
 PLACE_DENSITY:
   description: >
-    The desired placement density of cells. It reflects how spread the cells
-    would be on the core area. 1.0 = closely dense. 0.0 = widely spread.
+    The desired average placement density of cells: 1.0 = dense, 0.0 = widely spread.
+
+    The intended effort is also communicated by this parameter. Use a low value for faster builds and higher value for better quality of results.
+
+    If a too low value is used, the placer will not be able to place all cells and a recommended minimum placement density can be found in the logs.
+
+    A too high value can lead to excessive runtimes, even timeouts and subtle failures in the flow after placement, such as in CTS or global routing when timing repair fails.
+
+    The default is platform specific.
   stages:
     - floorplan
     - place
@@ -385,6 +426,7 @@ PLACE_DENSITY_LB_ADDON:
     - floorplan
     - place
   tunable: 1
+  type: float
 REPAIR_PDN_VIA_LAYER:
   description: |
     Remove power grid vias which generate DRC violations after detailed routing.
@@ -392,7 +434,6 @@ GLOBAL_PLACEMENT_ARGS:
   description: >
     Use additional tuning parameters during global placement other than default
     args defined in global_place.tcl.
-  default: ""
 ENABLE_DPO:
   description: |
     Enable detail placement with improve_placement feature.
@@ -479,6 +520,15 @@ SETUP_SLACK_MARGIN:
     - floorplan
     - grt
   default: 0
+SETUP_REPAIR_SEQUENCE:
+  description: |
+    Specifies the sequence of moves to do in repair_timing -setup. This should be a string
+    of move keywords separated by commas such as the default when not used:
+    "unbuffer,sizedown,sizeup,swap,buffer,clone,split".
+  stages:
+    - cts
+    - floorplan
+    - grt
 SKIP_GATE_CLONING:
   description: >
     Do not use gate cloning transform to fix timing violations (default: use
@@ -571,8 +621,14 @@ DESIGN_NAME:
 VERILOG_FILES:
   required: true
   description: >
-    The path to the design Verilog files or JSON files providing a description
-    of modules (check `yosys -h write_json` for more details).
+    The path to the design Verilog/SystemVerilog files providing a description
+    of modules.
+  stages:
+    - synth
+VERILOG_DEFINES:
+  description: >
+    Preprocessor defines passed to the language frontend.
+    Example: `-D HPDCACHE_ASSERT_OFF`
   stages:
     - synth
 SDC_FILE:
@@ -652,20 +708,24 @@ SYNTH_KEEP_MODULES:
 SYNTH_ARGS:
   description: |
     Optional synthesis variables for yosys.
-  default: -flatten
+SYNTH_HIER_SEPARATOR:
+  description: |
+    Separator used for the synthesis flatten stage.
+  default: .
 VERILOG_TOP_PARAMS:
   description: |
     Apply toplevel params (if exist).
   stages:
     - synth
-  default: ""
 CORE_ASPECT_RATIO:
   description: >
     The core aspect ratio (height / width). This value is ignored if
     `CORE_UTILIZATION` is undefined.
   stages:
     - floorplan
+  default: 1.0
   tunable: 1
+  type: float
 CORE_MARGIN:
   description: >
     The margin between the core area and die area, specified in microns.
@@ -675,7 +735,9 @@ CORE_MARGIN:
     is undefined.
   stages:
     - floorplan
+  default: 1.0
   tunable: 1
+  type: float
 DIE_AREA:
   description: >
     The die area specified as a list of lower-left and upper-right corners in
@@ -684,18 +746,6 @@ DIE_AREA:
   stages:
     - floorplan
   tunable: 1
-RESYNTH_AREA_RECOVER:
-  description: |
-    Enable re-synthesis for area reclaim.
-  stages:
-    - floorplan
-  default: 0
-RESYNTH_TIMING_RECOVER:
-  description: |
-    Enable re-synthesis for timing optimization.
-  stages:
-    - floorplan
-  default: 0
 MACRO_ROWS_HALO_X:
   description: >
     Horizontal distance between the edge of the macro and the beginning of the
@@ -720,6 +770,13 @@ CTS_BUF_DISTANCE:
     Distance (in microns) between buffers.
   stages:
     - cts
+  tunable: 1
+  type: float
+CTS_BUF_LIST:
+  description: |
+    List of cells used to construct the clock tree. Overrides buffer inference.
+  stages:
+    - cts
 CTS_CLUSTER_DIAMETER:
   description: >
     Maximum diameter (in microns) of sink cluster.
@@ -727,6 +784,7 @@ CTS_CLUSTER_DIAMETER:
   stages:
     - cts
   tunable: 1
+  type: float
 CTS_CLUSTER_SIZE:
   description: >
     Maximum number of sinks per cluster.
@@ -734,6 +792,12 @@ CTS_CLUSTER_SIZE:
   stages:
     - cts
   tunable: 1
+  type: int
+CTS_LIB_NAME:
+  description: |
+    Name of the Liberty library to use in selecting the clock buffers.
+  stages:
+    - cts
 CTS_SNAPSHOT:
   description: |
     Creates ODB/SDC files prior to clock net and setup/hold repair.
@@ -759,6 +823,11 @@ ABSTRACT_SOURCE:
     Which .odb file to use to create abstract
   stages:
     - generate_abstract
+PRE_GLOBAL_ROUTE_TCL:
+  description: |
+    Specifies a Tcl script with commands to run before global route.
+  stages:
+    - grt
 GLOBAL_ROUTE_ARGS:
   description: >
     Replaces default arguments for global route.
@@ -912,6 +981,20 @@ RUN_LOG_NAME_STEM:
   default: run
 YOSYS_FLAGS:
   description: >
-    Additional flags to pass to yosys.
+    Flags to pass to yosys.
   stages:
     - synth
+  default: -v 3
+FLOW_VARIANT:
+  description: >
+    Flow variant to use, used in the flow variant directory name.
+  default: base
+RULES_JSON:
+  description: >
+    json files with the metrics baseline regression rules.
+    In the ORFS Makefile, this defaults to $DESIGN_DIR/rules-base.json,
+    but ORFS does not mandate the users source directory layout and
+    this can be placed elsewhere when the user sets up an ORFS
+    config.mk or from bazel-orfs.
+  stages:
+    - test

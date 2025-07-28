@@ -1,6 +1,5 @@
 {
 	"floorplan__design__instance__count__setup_buffer": 0,
-	"floorplan__design__instance__count__hold_buffer": 0,
 	"run__flow__platform__time_units": "1ns",
 	"run__flow__platform__capacitance_units": "1pF",
 	"run__flow__platform__resistance_units": "1kohm",
@@ -35,6 +34,6 @@
 	"floorplan__design__rows:CoreSite": 15,
 	"floorplan__design__sites": 1860,
 	"floorplan__design__sites:CoreSite": 1860,
-	"floorplan__flow__warnings__count": 2,
+	"floorplan__flow__warnings__count": 4,
 	"floorplan__flow__errors__count": 0
 }

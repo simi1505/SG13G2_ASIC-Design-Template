@@ -16,3 +16,27 @@ compile_pip_requirements(
     src = "requirements.in",
     requirements_txt = "requirements_lock.txt",
 )
+
+MAKEFILE_SHARED = [
+    "*.mk",
+]
+
+# for scripts/flow.sh steps
+filegroup(
+    name = "makefile",
+    srcs = glob(MAKEFILE_SHARED + [
+        "*.py",
+        "*.sh",
+    ]),
+    visibility = ["//visibility:public"],
+)
+
+# for scripts/synth.sh steps
+filegroup(
+    name = "makefile_yosys",
+    srcs = glob(MAKEFILE_SHARED) + [
+        "merge_lib.py",
+        "preprocessLib.py",
+    ],
+    visibility = ["//visibility:public"],
+)

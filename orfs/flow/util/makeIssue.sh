@@ -13,6 +13,7 @@ ISSUE_CP_DESIGN_FILE_VARS="SDC_FILE \
                            SIG_MAP_FILE \
                            IO_CONSTRAINTS \
                            MACRO_PLACEMENT \
+                           MACRO_WRAPPERS \
                            RTLMP_CONFIG_FILE \
                            DFF_LIB_FILE "
 ISSUE_CP_PLATFORM_FILE_VARS="LIB_FILES \
@@ -31,7 +32,7 @@ ISSUE_CP_PLATFORM_FILE_VARS="LIB_FILES \
                              PDN_TCL \
                              POST_PDN_TCL \
                              POST_CTS_TCL \
-                             PRE_GLOBAL_ROUTE \
+                             PRE_GLOBAL_ROUTE_TCL \
                              FASTROUTE_TCL \
                              POST_DETAIL_ROUTE_TCL \
                              RCX_RULES \

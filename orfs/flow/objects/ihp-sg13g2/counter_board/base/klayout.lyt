@@ -84,7 +84,7 @@
    <macro-resolution-mode>default</macro-resolution-mode>
    <separate-groups>false</separate-groups>
    <map-file>/foss/designs/SG13G2_ASIC-Design-Template/orfs/flow/platforms/ihp-sg13g2/sg13g2.map</map-file>
-   <lef-files>$(env('FLOW_HOME'))/platforms/ihp-sg13g2/lef/sg13g2_stdcell.lef</lef-files><lef-files>../../../../objects/ihp-sg13g2/counter_board/base/klayout_tech.lef</lef-files>
+   <lef-files>../../../../platforms/ihp-sg13g2/lef/sg13g2_stdcell.lef</lef-files><lef-files>../../../../objects/ihp-sg13g2/counter_board/base/klayout_tech.lef</lef-files>
   </lefdef>
   <mebes>
    <invert>false</invert>

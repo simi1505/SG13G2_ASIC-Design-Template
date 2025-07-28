@@ -100,9 +100,9 @@ sg13g2_xnor2_1 _17_ (
     .Y(_03_)
 );
 
-sg13g2_dfrbp_1 \counter_0.n20_q[0]$_DFFE_PN0P_  (
-    .VDD(VPWR),
+sg13g2_dfrbp_1 \counter_0.n20[0]$_DFFE_PN0P_  (
     .VSS(VGND),
+    .VDD(VPWR),
     .VNB(VGND),
     .VPB(VPWR),
     .CLK(clock_i),
@@ -112,9 +112,9 @@ sg13g2_dfrbp_1 \counter_0.n20_q[0]$_DFFE_PN0P_  (
     .RESET_B(reset_n_i)
 );
 
-sg13g2_dfrbp_1 \counter_0.n20_q[1]$_DFFE_PN0P_  (
-    .VDD(VPWR),
+sg13g2_dfrbp_1 \counter_0.n20[1]$_DFFE_PN0P_  (
     .VSS(VGND),
+    .VDD(VPWR),
     .VNB(VGND),
     .VPB(VPWR),
     .CLK(clock_i),
@@ -124,9 +124,9 @@ sg13g2_dfrbp_1 \counter_0.n20_q[1]$_DFFE_PN0P_  (
     .RESET_B(reset_n_i)
 );
 
-sg13g2_dfrbp_1 \counter_0.n20_q[2]$_DFFE_PN0P_  (
-    .VDD(VPWR),
+sg13g2_dfrbp_1 \counter_0.n20[2]$_DFFE_PN0P_  (
     .VSS(VGND),
+    .VDD(VPWR),
     .VNB(VGND),
     .VPB(VPWR),
     .CLK(clock_i),
@@ -136,9 +136,9 @@ sg13g2_dfrbp_1 \counter_0.n20_q[2]$_DFFE_PN0P_  (
     .RESET_B(reset_n_i)
 );
 
-sg13g2_dfrbp_1 \counter_0.n20_q[3]$_DFFE_PN0P_  (
-    .VDD(VPWR),
+sg13g2_dfrbp_1 \counter_0.n20[3]$_DFFE_PN0P_  (
     .VSS(VGND),
+    .VDD(VPWR),
     .VNB(VGND),
     .VPB(VPWR),
     .CLK(clock_i),
