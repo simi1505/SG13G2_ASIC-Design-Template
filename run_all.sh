@@ -12,7 +12,8 @@ set -e -x
 cd $(dirname "$0")
 
 # Parse arguments
-sim_flag=false
+language="vhdl" # default
+sim_flag=
 
 # Check if no arguments were passed
 if [ $# -eq 0 ]; then
@@ -21,31 +22,64 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-# Check passed arguments
+# Parse flags
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -s|--sim)
       sim_flag=true
-      name=$2 # counter
-      shift 2 # move to next argument
+      shift
       ;;
     -l|--layout)
       sim_flag=false
-      name=$2 # counter
-      shift 2 # move to next argument
+      shift
+      ;;
+    --vhdl)
+      language="vhdl"
+      shift
+      ;;
+    --verilog)
+      language="verilog"
+      shift
       ;;
     -h|--help)
-      echo "Usage: $0 [-s|--sim]: If the sim flag is set, no layout is produced (e.g. ./run_all.sh -s counter)."
-      echo "Usage: $0 [-l|--layout]: If the layout flag is set, the layout is produced (e.g. ./run_all.sh -l counter)."
+      echo "Usage:"
+      echo "  $0 [-s|--sim | -l|--layout] [--vhdl | --verilog] <name>"
+      echo "    -s or --sim:     Run simulation (no layout)"
+      echo "    -l or --layout:  Generate layout"
+      echo "    --vhdl:          Use VHDL (default)"
+      echo "    --verilog:       Use Verilog"
+      echo "    <name>:          Design name (required)"
       exit 0
       ;;
-    *)
+    -*)
       echo "Unknown option: $1"
       echo "Use -h for help."
       exit 1
       ;;
+    *)
+      name="$1"
+      shift
+      ;;
   esac
 done
+
+# Validate required fields
+if [ -z "$sim_flag" ]; then
+  echo "Error: Mode (-s or -l) must be specified."
+  echo "Use -h for help."
+  exit 1
+fi
+
+if [ -z "$language" ]; then
+  echo "No language specified. Defaulting to vhdl."
+  language="vhdl"
+fi
+
+if [ -z "$name" ]; then
+  echo "Error: Design name is required."
+  echo "Use -h for help."
+  exit 1
+fi
 
 # Initialize variables
 VERILOG=${VERILOG:-verilog/rtl}
@@ -56,10 +90,12 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 # First, clean all
 ./clean_all.sh "$name" || true
 
-# Run "vhdl2verilog.sh"
-cd "$VERILOG"
-./vhdl2verilog.sh "$name"
-cd "$SCRIPT_DIR"
+if [ "$language" = "vhdl" ]; then
+  # Run "vhdl2verilog.sh"
+  cd "$VERILOG"
+  ./vhdl2verilog.sh "$name"
+  cd "$SCRIPT_DIR"
+fi
 
 if [ "$sim_flag" = true ]; then
   # Run "run_orfs.sh" - Simulation Only
