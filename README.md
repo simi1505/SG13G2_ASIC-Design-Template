@@ -73,3 +73,8 @@ Alternatively, one can post-process the data (e.g. down-sample or cut out data) 
 	year={2025},
 	url={https://github.com/simi1505/SG13G2_ASIC-Design-Template}}
 ```
+
+## **ToDo**
+
+- [ ] Post-Layout Simulation
+- [ ] RTL Simulation
